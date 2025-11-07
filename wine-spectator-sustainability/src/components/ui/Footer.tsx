@@ -53,9 +53,27 @@ export function Footer() {
               Keep sustainability in the spotlight.
             </h2>
             <p className="max-w-xl text-lg text-white/70">
-              Our 2025 partners illuminate regenerative vineyards, ocean stewardship, and equitable wine
-              communities. Explore their spotlights below and keep the story flowing across your channels.
+              Partner with Wine Spectator to shape the Sustainability 2025 narrative—tailor assets, briefings,
+              and immersive storytelling for your audience.
             </p>
+            <div className="flex flex-wrap gap-4">
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href="mailto:sustainability@winespectator.com"
+                className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#10301f] shadow-[0_12px_40px_-18px_rgba(255,255,255,0.6)] transition hover:bg-[#B8E4B3] hover:text-[#10301f]"
+              >
+                Contact partnerships
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href="mailto:sustainability@winespectator.com?subject=Wine%20Spectator%20Sustainability%20Media%20Kit"
+                className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:border-white hover:text-[#B8E4B3]"
+              >
+                Request media kit
+              </motion.a>
+            </div>
           </motion.div>
 
           <motion.div
@@ -86,6 +104,21 @@ export function Footer() {
             </ul>
           </motion.div>
         </div>
+
+        <motion.div
+          id="media"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-16 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl"
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-[#9bc5a1]">Media toolkit</p>
+          <p className="mt-3 max-w-2xl text-sm text-white/70">
+            Curated stills, logos, bottle photography, and sustainability metrics are available for editorial,
+            trade, and partnership placements—crafted to make the campaign sparkle across channels.
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}

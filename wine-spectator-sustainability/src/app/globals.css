@@ -2,41 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Campaign Color Palette */
+/* Refined Luxury Color Palette */
 :root {
-  /* Core palette */
-  --campaign-forest: #1F4D3B;
-  --campaign-canopy: #2F6B4C;
-  --campaign-sage: #EEF3EA;
-  --campaign-cream: #F6F2E8;
-  --campaign-warm: #D86C3B;
-  --campaign-gold: #E3C77D;
-  --campaign-cloud: #E4E8E0;
-
+  /* Primary Palette */
+  --white: #FFFFFF;
+  --off-white: #FAFAF8;
+  --cream: #F7F3F0;
+  --light-gray: #E8E6E1;
+  --medium-gray: #9B9691;
+  --charcoal: #2C2926;
+  --rich-black: #1A1815;
+  
+  /* Accent Colors */
+  --gold: #C9A961;  /* Refined gold, not too bright */
+  --gold-light: #E4D4A8;
+  --gold-dark: #9C7F3E;
+  --burgundy: #6B2737;  /* For Barclay Rex accents */
+  --navy: #1E3A5F;  /* Campaign accent */
+  
+  /* Backgrounds */
+  --bg-primary: var(--off-white);
+  --bg-secondary: var(--white);
+  --bg-accent: var(--cream);
+  
   /* Typography */
-  --text-primary: #143024;
-  --text-secondary: #365A47;
-  --text-muted: #6F8277;
-
-  /* Shadows */
-  --shadow-subtle: 0 12px 40px -22px rgba(31, 77, 59, 0.45);
-  --shadow-medium: 0 24px 60px -28px rgba(31, 77, 59, 0.35);
-  --shadow-strong: 0 36px 80px -30px rgba(22, 58, 43, 0.45);
-
-  /* Animation */
-  --timing-fast: 0.2s;
-  --timing-normal: 0.35s;
-  --timing-slow: 0.65s;
-
-  /* Layout spacing */
-  --section-padding: clamp(5rem, 9vw, 8rem);
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  
+  /* Spacing */
+  --section-padding: clamp(5rem, 10vw, 8rem);
   --container-padding: clamp(2rem, 5vw, 4rem);
+  
+  /* Animation Timings */
+  --timing-fast: 0.2s;
+  --timing-normal: 0.3s;
+  --timing-slow: 0.6s;
+  
+  /* Shadows */
+  --shadow-subtle: 0 2px 8px rgba(44, 41, 38, 0.08);
+  --shadow-medium: 0 4px 16px rgba(44, 41, 38, 0.12);
+  --shadow-strong: 0 8px 32px rgba(44, 41, 38, 0.16);
+  --shadow-elegant: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-elegant-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* Refined Body Styles */
 body {
-  background: var(--campaign-sage);
-  color: var(--text-primary);
+  background: var(--bg-primary);
+  color: var(--charcoal);
+  font-family: var(--font-body);
   line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -66,8 +81,8 @@ body {
 .btn-luxury-premium {
   position: relative;
   padding: 1rem 2rem;
-  background: var(--campaign-forest);
-  color: #ffffff;
+  background: var(--charcoal);
+  color: var(--white);
   border: none;
   font-weight: 500;
   text-transform: uppercase;
@@ -77,10 +92,10 @@ body {
 }
 
 .btn-luxury-premium:hover {
-  background: var(--campaign-warm);
-  color: var(--campaign-cream);
+  background: var(--gold);
+  color: var(--charcoal);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-medium);
+  box-shadow: var(--shadow-elegant-lg);
 }
 
 .btn-luxury-premium:active {
@@ -91,8 +106,8 @@ body {
   position: relative;
   padding: 1rem 2rem;
   background: transparent;
-  color: var(--campaign-forest);
-  border: 1px solid var(--campaign-forest);
+  color: var(--charcoal);
+  border: 1px solid var(--charcoal);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -101,10 +116,10 @@ body {
 }
 
 .btn-luxury-outline:hover {
-  background: var(--campaign-forest);
-  color: #ffffff;
+  background: var(--charcoal);
+  color: var(--white);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-medium);
+  box-shadow: var(--shadow-elegant-lg);
 }
 
 /* Utility Classes */
@@ -122,33 +137,33 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--campaign-cloud);
+  background: var(--light-gray);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--campaign-canopy);
+  background: var(--gold);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--campaign-forest);
+  background: var(--gold-dark);
 }
 
 /* Focus States */
 *:focus {
-  outline: 2px solid var(--campaign-warm);
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
 
 /* Selection Styles */
 ::selection {
-  background: var(--campaign-warm);
-  color: #ffffff;
+  background: var(--gold);
+  color: var(--charcoal);
 }
 
 ::-moz-selection {
-  background: var(--campaign-warm);
-  color: #ffffff;
+  background: var(--gold);
+  color: var(--charcoal);
 }
 
 /* Smooth Transitions */
@@ -161,10 +176,6 @@ body {
   :root {
     --section-padding: clamp(3rem, 8vw, 6rem);
     --container-padding: clamp(1rem, 4vw, 2rem);
-  }
-
-  body {
-    background: var(--campaign-cream);
   }
 }
 

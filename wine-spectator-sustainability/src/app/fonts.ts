@@ -1,17 +1,16 @@
-import { Fraunces, Manrope, Space_Grotesk } from 'next/font/google';
+import { Playfair_Display, Inter, Cormorant_Garamond } from 'next/font/google';
 
 // Preload critical fonts with optimal settings
-export const campaignDisplay = Fraunces({
+export const playfairDisplay = Playfair_Display({
   variable: '--font-display',
   subsets: ['latin'],
   display: 'swap',
   preload: true,
-  axes: ['SOFT', 'WONK'],
-  fallback: ['"Times New Roman"', 'serif'],
+  fallback: ['serif'],
   adjustFontFallback: true,
 });
 
-export const campaignBody = Manrope({
+export const inter = Inter({
   variable: '--font-body',
   subsets: ['latin'],
   display: 'swap',
@@ -20,12 +19,13 @@ export const campaignBody = Manrope({
   adjustFontFallback: true,
 });
 
-export const campaignAccent = Space_Grotesk({
+export const cormorantGaramond = Cormorant_Garamond({
   variable: '--font-accent',
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
   preload: true,
-  fallback: ['system-ui', 'sans-serif'],
+  fallback: ['serif'],
   adjustFontFallback: true,
 });
 
@@ -36,11 +36,12 @@ export const fontOptimization = {
     if (typeof window !== 'undefined') {
       // Preload critical fonts
       const fonts = [
-        { family: 'Fraunces', weight: '400', style: 'normal' },
-        { family: 'Fraunces', weight: '700', style: 'normal' },
-        { family: 'Manrope', weight: '400', style: 'normal' },
-        { family: 'Manrope', weight: '700', style: 'normal' },
-        { family: 'Space Grotesk', weight: '500', style: 'normal' },
+        { family: 'Playfair Display', weight: '400', style: 'normal' },
+        { family: 'Playfair Display', weight: '700', style: 'normal' },
+        { family: 'Inter', weight: '400', style: 'normal' },
+        { family: 'Inter', weight: '600', style: 'normal' },
+        { family: 'Cormorant Garamond', weight: '400', style: 'normal' },
+        { family: 'Cormorant Garamond', weight: '600', style: 'normal' },
       ];
 
       fonts.forEach(font => {
@@ -58,15 +59,15 @@ export const fontOptimization = {
       const style = document.createElement('style');
       style.textContent = `
         @font-face {
-          font-family: 'Fraunces';
+          font-family: 'Playfair Display';
           font-display: swap;
         }
         @font-face {
-          font-family: 'Manrope';
+          font-family: 'Inter';
           font-display: swap;
         }
         @font-face {
-          font-family: 'Space Grotesk';
+          font-family: 'Cormorant Garamond';
           font-display: swap;
         }
       `;
