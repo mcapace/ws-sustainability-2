@@ -143,9 +143,13 @@ function optimizeImages() {
   }
   
   const imageDirs = [
-    'public/images/Davidoff Madison/',
-    'public/images/Davidoff Sixth Ave/',
-    'public/images/Barclay Rex/'
+    'public/images/wineries/firetree/',
+    'public/images/wineries/gloria-ferrer/',
+    'public/images/wineries/lallier/',
+    'public/images/wineries/piccini/',
+    'public/images/wineries/san-simeon/',
+    'public/images/wineries/willakenzie/',
+    'public/images/logos/'
   ];
   
   console.log('🎯 Optimizing images for performance...\n');
