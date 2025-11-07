@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { Navigation } from '@/components/ui/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { VenueShowcase } from '@/components/sections/VenueShowcase';
@@ -13,7 +12,6 @@ import { ResponsiveTest } from '@/components/ui/ResponsiveTest';
 import { PerformanceMonitor } from '@/components/ui/PerformanceMonitor';
 import { LuxuryCursor } from '@/components/ui/LuxuryCursor';
 import { AccessibilityToolbar, SkipToMainContent, KeyboardNavigation, HighContrastStyles } from '@/components/ui/AccessibilityFeatures';
-import { LuxuryPageLoader } from '@/components/ui/LuxuryLoadingStates';
 import { ContentValidator } from '@/components/ui/ContentValidator';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -24,21 +22,6 @@ if (typeof window !== 'undefined') {
 }
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time for smooth experience
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <LuxuryPageLoader />;
-  }
-
   return (
     <ErrorBoundary>
       <div className="min-h-screen bg-[#F7FAF7]">
