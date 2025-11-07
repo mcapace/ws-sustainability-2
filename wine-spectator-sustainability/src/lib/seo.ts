@@ -162,13 +162,13 @@ export const generateEventSchema = (event: {
       name: event.location,
     },
     offers: event.price
-      {
-        '@type': 'Offer',
-        price: event.price,
-        priceCurrency: 'USD',
-        availability: 'https://schema.org/InStock',
-      }
-        : undefined,
+      ? {
+          '@type': 'Offer',
+          price: event.price,
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+        }
+      : undefined,
     organizer: {
       '@type': 'Organization',
       name: 'Wine Spectator',
