@@ -1,25 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { venueData, VenueLocation } from '@/data/venues';
-import { MapPin, Phone, Clock, Gauge } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 const LOCATIONS = venueData.brands.flatMap(brand => brand.locations);
 
 export function WineryDetail({ location, index }: { location: VenueLocation; index: number }) {
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
   const isEven = index % 2 === 0;
-  const weekdayHours =
-    location.hours.monday === location.hours.friday
-      ? location.hours.monday
-      : `${location.hours.monday} – ${location.hours.friday}`;
+
+  const galleryImages =
+    location.images?.gallery && location.images.gallery.length > 0
+      ? location.images.gallery
+      : [location.images.hero];
+  const currentImage = galleryImages[activeGalleryIndex] ?? location.images.hero;
+
+  useEffect(() => {
+    setActiveGalleryIndex(0);
+  }, [location.id]);
 
   return (
     <section
       id={location.id}
-      className={`py-20 ${index % 2 === 0 ? 'bg-white' : 'bg-[#F7FAF7]'}`}
+      className={`py-20 ${isEven ? 'bg-white' : 'bg-[#F7FAF7]'}`}
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -30,67 +36,59 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#356447]">
-              {location.neighborhood}
-            </span>
+            <div className="flex flex-wrap items-center gap-4">
+              {location.logo && (
+                <Image
+                  src={location.logo}
+                  alt={`${location.name} logo`}
+                  width={160}
+                  height={60}
+                  className="h-12 w-auto object-contain"
+                />
+              )}
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#356447]">
+                {location.shortName}
+              </span>
+            </div>
             <h3 className="text-balance font-serif text-4xl text-[#132C24]">{location.name}</h3>
-            <p className="text-sm uppercase tracking-[0.2em] text-[#6E8A7E]">{location.tagline}</p>
-            <p className="text-lg leading-relaxed text-slate-600">{location.signature}</p>
-
-            <div className="rounded-2xl border border-[#DDE5DC] bg-white/70 p-6 backdrop-blur-sm">
-              <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-[#356447]">
-                Impact Headline
-              </h4>
-              <p className="mt-3 text-base font-semibold text-[#132C24]">
-                {location.impact.headline}
+            {location.tagline && (
+              <p className="text-sm uppercase tracking-[0.2em] text-[#6E8A7E]">
+                {location.tagline}
               </p>
-              <p className="mt-2 text-sm text-slate-600">{location.impact.description}</p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                {location.impact.metrics.map(metric => (
-                  <div
-                    key={metric.label}
-                    className="rounded-xl border border-[#DDE5DC] bg-[#F7FAF7] p-4 text-sm text-[#10301f]"
-                  >
-                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#6E8A7E]">
-                      <Gauge className="h-4 w-4 text-[#B8E4B3]" />
-                      {metric.label}
-                    </div>
-                    <p className="mt-2 text-2xl font-semibold text-[#132C24]">{metric.value}</p>
-                    <p className="mt-1 text-xs text-slate-600">{metric.supportingText}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            )}
+            <p className="text-lg leading-relaxed text-slate-600">{location.description}</p>
+            {location.signature && location.signature !== location.description && (
+              <p className="text-base italic text-slate-500">{location.signature}</p>
+            )}
 
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-[#356447]">
-                Commitments
-              </h4>
-              <p className="mt-2 text-sm font-semibold text-[#10301f]">{location.commitments.focus}</p>
-              <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                {location.commitments.details.map(detail => (
-                  <li key={detail} className="flex gap-2">
-                    <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-[#B8E4B3]" />
-                    <span>{detail}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {location.website && (
+              <div className="flex flex-wrap gap-4 pt-2">
+                <a
+                  href={location.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-full bg-[#10301f] px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#B8E4B3] transition hover:bg-[#16472f]"
+                >
+                  Visit winery
+                </a>
+              </div>
+            )}
 
-            <div className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.3em] text-[#6E8A7E]">
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                <span>{location.address}</span>
+            {location.features && location.features.length > 0 && (
+              <div className="rounded-2xl border border-[#DDE5DC] bg-white/70 p-6 backdrop-blur-sm">
+                <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-[#356447]">
+                  Campaign Highlights
+                </h4>
+                <ul className="mt-4 space-y-3 text-sm text-slate-600">
+                  {location.features.map(feature => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <Sparkles className="mt-1 h-4 w-4 text-[#B8E4B3]" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span>{location.phone}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4" />
-                <span>{weekdayHours}</span>
-              </div>
-            </div>
+            )}
           </motion.div>
 
           <motion.div
@@ -100,32 +98,36 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className="relative h-[420px] overflow-hidden rounded-3xl">
-              <Image
-                src={location.images.gallery[activeGalleryIndex] || location.images.hero}
-                alt={`${location.name} sustainability`}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                priority={index === 0}
-              />
+            <div className="relative overflow-hidden rounded-3xl">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={currentImage}
+                  alt={`${location.name} sustainability spotlight`}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  priority={index === 0}
+                />
+              </div>
             </div>
-            <div className="mt-4 grid grid-cols-3 gap-3">
-              {location.images.gallery.map((img, imgIndex) => (
-                <button
-                  key={img}
-                  onClick={() => setActiveGalleryIndex(imgIndex)}
-                  className={`relative h-24 overflow-hidden rounded-xl border transition ${
-                    activeGalleryIndex === imgIndex
-                      ? 'border-[#10301f]'
-                      : 'border-transparent hover:border-[#B8E4B3]'
-                  }`}
-                  aria-label={`View ${location.name} gallery image ${imgIndex + 1}`}
-                >
-                  <Image src={img} alt="" fill className="object-cover" sizes="160px" />
-                </button>
-              ))}
-            </div>
+            {galleryImages.length > 1 && (
+              <div className="mt-4 grid grid-cols-3 gap-3">
+                {galleryImages.map((img, imgIndex) => (
+                  <button
+                    key={img}
+                    onClick={() => setActiveGalleryIndex(imgIndex)}
+                    className={`relative h-24 overflow-hidden rounded-xl border transition ${
+                      activeGalleryIndex === imgIndex
+                        ? 'border-[#10301f]'
+                        : 'border-transparent hover:border-[#B8E4B3]'
+                    }`}
+                    aria-label={`View ${location.name} gallery image ${imgIndex + 1}`}
+                  >
+                    <Image src={img} alt="" fill className="object-cover" sizes="160px" />
+                  </button>
+                ))}
+              </div>
+            )}
           </motion.div>
         </div>
       </div>

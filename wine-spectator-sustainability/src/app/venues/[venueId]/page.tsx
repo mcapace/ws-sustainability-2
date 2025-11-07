@@ -53,10 +53,9 @@ export async function generateMetadata({ params }: VenuePageProps) {
     description: venue.description,
     keywords: [
       venue.name,
-      venue.neighborhood,
+      venue.shortName,
       'Wine Spectator Sustainability',
-      ...venue.features,
-      ...(venue.perfectFor || [])
+      ...(venue.tagline ? [venue.tagline] : []),
     ],
     openGraph: {
       title: `${venue.name} | Wine Spectator Sustainability`,

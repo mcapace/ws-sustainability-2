@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { venueData } from '@/data/venues';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://bestcigarlounges.cigaraficionado.com';
+  const baseUrl = 'https://campaign.winespectator.com/sustainability';
   
   // Static pages
   const staticPages = [

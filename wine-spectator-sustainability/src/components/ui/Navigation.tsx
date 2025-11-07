@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 const PRODUCERS = [
-  { label: 'Firetree', href: '#firetree' },
-  { label: 'Gloria Ferrer', href: '#gloria-ferrer' },
   { label: 'Champagne Lallier', href: '#lallier' },
+  { label: 'Firetree Vineyards', href: '#firetree' },
+  { label: 'Gloria Ferrer', href: '#gloria-ferrer' },
+  { label: 'San Simeon Wines', href: '#san-simeon' },
+  { label: 'WillaKenzie Estate', href: '#willakenzie' },
   { label: 'Piccini 1882', href: '#piccini' },
-  { label: 'San Simeon', href: '#san-simeon' },
-  { label: 'WillaKenzie', href: '#willakenzie' },
 ];
 
 const PRIMARY_LINKS = [

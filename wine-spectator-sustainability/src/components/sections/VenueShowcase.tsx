@@ -64,26 +64,35 @@ export function VenueShowcase() {
 
               <p className="mt-6 flex-1 text-slate-600">{location.description}</p>
 
-              <ul className="mt-6 space-y-3 text-sm text-[#10301f]">
-                {location.features.slice(0, 3).map(feature => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <Sparkles className="mt-1 h-4 w-4 text-[#B8E4B3]" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              {location.features && location.features.length > 0 && (
+                <ul className="mt-6 space-y-3 text-sm text-[#10301f]">
+                  {location.features.slice(0, 3).map(feature => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <Sparkles className="mt-1 h-4 w-4 text-[#B8E4B3]" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
-              <div className="mt-8 flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-[#6E8A7E]">
-                <span>{location.neighborhood}</span>
-                <span>{location.address}</span>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <a
+                  href={`#${location.id}`}
+                  className="inline-flex items-center justify-center rounded-full border border-[#10301f] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#10301f] transition hover:bg-[#10301f] hover:text-[#B8E4B3]"
+                >
+                  View spotlight
+                </a>
+                {location.website && (
+                  <a
+                    href={location.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-[#10301f] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#B8E4B3] transition hover:bg-[#16472f]"
+                  >
+                    Visit winery
+                  </a>
+                )}
               </div>
-
-              <a
-                href={`#${location.id}`}
-                className="mt-8 inline-flex items-center justify-center rounded-full border border-[#10301f] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#10301f] transition hover:bg-[#10301f] hover:text-[#B8E4B3]"
-              >
-                View spotlight
-              </a>
             </motion.article>
           ))}
         </div>

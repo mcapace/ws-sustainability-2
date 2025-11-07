@@ -12,40 +12,25 @@ export function ProducerStructuredData({ venueId }: ProducerStructuredDataProps)
 
   if (!venue) return null;
 
-  const brand = venueData.brands.find(b => b.locations.includes(venue));
-  const localeParts = venue.address.split(',');
-
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${BASE_URL}/venues/${venue.id}`,
     name: venue.name,
     description: venue.description,
-    url: `${BASE_URL}/venues/${venue.id}`,
-    telephone: venue.phone,
-    email: venue.email,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: localeParts[0]?.trim(),
-      addressLocality: localeParts[1]?.trim(),
-      addressRegion: localeParts[2]?.trim()?.split(' ')[0] ?? '',
-      postalCode: venue.address.match(/\b\d{5}(-\d{4})?\b/)?.[0] ?? '',
-      addressCountry: 'US',
-    },
-    ...(venue.coordinates && {
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: venue.coordinates.lat,
-        longitude: venue.coordinates.lng,
-      },
-    }),
-    image: venue.images.hero,
-    logo: brand?.logo,
-    makesOffer: venue.impact.metrics.map(metric => ({
-      '@type': 'Offer',
-      name: metric.label,
-      description: metric.supportingText,
-    })),
+    url: venue.website ?? `${BASE_URL}/venues/${venue.id}`,
+    image: `${BASE_URL}${venue.images.hero}`,
+    ...(venue.logo && { logo: `${BASE_URL}${venue.logo}` }),
+    ...(venue.website && { sameAs: [venue.website] }),
+    ...(venue.impact?.metrics && venue.impact.metrics.length > 0
+      ? {
+          makesOffer: venue.impact.metrics.map(metric => ({
+            '@type': 'Offer',
+            name: metric.label,
+            description: metric.supportingText,
+          })),
+        }
+      : {}),
     parentOrganization: {
       '@type': 'Organization',
       name: SITE_NAME,
@@ -92,7 +77,7 @@ export function OrganizationStructuredData() {
           itemOffered: {
             '@type': 'CreativeWork',
             name: `${location.name} Sustainability Spotlight`,
-            description: location.impact.description,
+            description: location.impact?.description ?? location.description,
             provider: {
               '@type': 'Organization',
               name: brand.name,
