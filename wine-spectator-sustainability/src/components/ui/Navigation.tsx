@@ -54,10 +54,14 @@ export function Navigation() {
             href="#top"
             className={`flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.35em] ${linkColor}`}
           >
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#E3C77D] text-[#1F4D3B] shadow-[0_6px_18px_-12px_rgba(31,77,59,0.55)]">
-              WS
-            </span>
-            <span className="hidden md:inline">Sustainability</span>
+            <Image
+              src="/images/logos/wine-spectator-white.png"
+              alt="Wine Spectator"
+              width={132}
+              height={32}
+              className={`h-8 w-auto object-contain transition-all ${isScrolled ? 'invert-0 brightness-0 saturate-150' : ''}`}
+            />
+            <span className="hidden md:inline tracking-[0.4em] text-xs uppercase">Sustainability</span>
           </a>
 
           <div className="hidden items-center gap-10 lg:flex">
