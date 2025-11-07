@@ -48,7 +48,7 @@ export function Navigation() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         <div className="bg-[#D86C3B] text-white text-[10px] tracking-[0.55em] uppercase text-center py-2">
-          Paid partnership · Wine Spectator Sustainability Cohort
+          Paid partnership · Wine Spectator Sustainability Showcase
         </div>
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
           <a
