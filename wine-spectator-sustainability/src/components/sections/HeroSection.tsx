@@ -8,8 +8,8 @@ export function HeroSection() {
     <section id="top" className="relative flex min-h-[80vh] items-center overflow-hidden bg-[#0f1b17]">
       <div className="absolute inset-0">
         <Image
-          src="/images/hero/sustainability-header.jpg"
-          alt="Sunset over sustainable vineyards"
+          src="/images/hero/sustainability-collection-hero.jpeg"
+          alt="Sunlit vineyard terraces with sustainable farming"
           fill
           priority
           className="object-cover"

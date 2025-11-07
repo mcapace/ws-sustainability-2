@@ -4,8 +4,8 @@ import { ImageAsset } from '@/types';
 export const imageInventory: ImageAsset[] = [
   // Global campaign
   {
-    path: '/images/hero/sustainability-header.jpg',
-    filename: 'sustainability-header.jpg',
+    path: '/images/hero/sustainability-collection-hero.jpeg',
+    filename: 'sustainability-collection-hero.jpeg',
     category: 'hero',
     quality: 'high',
     aspectRatio: '16x9',

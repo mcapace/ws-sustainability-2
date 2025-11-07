@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   description:
     'A campaign landing experience highlighting six wineries transforming climate action into extraordinary wine.',
   url: 'https://campaign.winespectator.com/sustainability',
-  ogImage: '/images/hero/sustainability-header.jpg',
+  ogImage: '/images/hero/sustainability-collection-hero.jpeg',
 } as const;
 
 export const BRAND_COLORS = {
