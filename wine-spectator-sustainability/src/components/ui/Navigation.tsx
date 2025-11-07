@@ -15,8 +15,7 @@ const PRODUCERS = [
 
 const PRIMARY_LINKS = [
   { label: 'Impact', href: '#impact' },
-  { label: 'Activation', href: '#activation' },
-  { label: 'Media Kit', href: '#media' },
+  { label: 'Wineries', href: '#producers' },
 ];
 
 export function Navigation() {
@@ -33,7 +32,11 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const desktopNavBackground = isScrolled ? 'bg-white/85 backdrop-blur-md shadow-sm' : 'bg-transparent';
+  const desktopNavBackground = isScrolled
+    ? 'bg-[#F6F2E8]/95 backdrop-blur-lg shadow-[0_18px_40px_-30px_rgba(31,77,59,0.45)]'
+    : 'bg-gradient-to-b from-[#0f1b17]/95 to-transparent backdrop-blur-lg';
+  const linkColor = isScrolled ? 'text-[#1F4D3B]' : 'text-white';
+  const hoverColor = isScrolled ? 'hover:text-[#2F6B4C]' : 'hover:text-[#E3C77D]';
 
   return (
     <>
@@ -43,21 +46,24 @@ export function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
+        <div className="bg-[#D86C3B] text-white text-[10px] tracking-[0.55em] uppercase text-center py-2">
+          Paid partnership · Wine Spectator Sustainability Cohort
+        </div>
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
           <a
             href="#top"
-            className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.4em] text-[#1F3D2B]"
+            className={`flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.35em] ${linkColor}`}
           >
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#B8E4B3] text-[#10301f]">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#E3C77D] text-[#1F4D3B] shadow-[0_6px_18px_-12px_rgba(31,77,59,0.55)]">
               WS
             </span>
-            Sustainability
+            <span className="hidden md:inline">Sustainability</span>
           </a>
 
           <div className="hidden items-center gap-10 lg:flex">
             <div className="relative">
               <button
-                className="flex items-center gap-2 text-sm font-medium uppercase tracking-[0.2em] text-[#1F3D2B] hover:text-[#356447]"
+                className={`flex items-center gap-2 text-sm font-medium uppercase tracking-[0.2em] ${linkColor} ${hoverColor}`}
                 onMouseEnter={() => setIsProducerDropdownOpen(true)}
                 onMouseLeave={() => setIsProducerDropdownOpen(false)}
               >
@@ -76,12 +82,12 @@ export function Navigation() {
                     onMouseEnter={() => setIsProducerDropdownOpen(true)}
                     onMouseLeave={() => setIsProducerDropdownOpen(false)}
                   >
-                    <ul className="space-y-2 text-[#10301f]">
+                    <ul className="space-y-2 text-[#1F4D3B]">
                       {PRODUCERS.map(producer => (
                         <li key={producer.label}>
                           <a
                             href={producer.href}
-                            className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-[#B8E4B3]/40 hover:text-[#10301f]"
+                            className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-[#E3C77D]/35 hover:text-[#1F4D3B]"
                           >
                             {producer.label}
                           </a>
@@ -97,20 +103,11 @@ export function Navigation() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium uppercase tracking-[0.2em] text-[#1F3D2B] hover:text-[#356447]"
+                className={`text-sm font-medium uppercase tracking-[0.2em] ${linkColor} ${hoverColor}`}
               >
                 {link.label}
               </a>
             ))}
-          </div>
-
-          <div className="hidden lg:block">
-            <a
-              href="#download"
-              className="rounded-full bg-[#10301f] px-6 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-[#B8E4B3] transition hover:bg-[#16472f]"
-            >
-              Download Deck
-            </a>
           </div>
 
           <motion.button
@@ -127,7 +124,7 @@ export function Navigation() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg lg:hidden"
+            className="fixed inset-0 z-40 bg-[#F6F2E8]/95 backdrop-blur-2xl lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -141,7 +138,7 @@ export function Navigation() {
               transition={{ duration: 0.25, delay: 0.05 }}
             >
               <div className="space-y-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#356447]">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
                   Producers
                 </p>
                 <div className="grid gap-4">
@@ -149,7 +146,7 @@ export function Navigation() {
                     <a
                       key={link.href}
                       href={link.href}
-                      className="text-xl font-semibold text-[#132C24]"
+                      className="text-xl font-semibold text-[#1F4D3B]"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.label}
@@ -159,15 +156,15 @@ export function Navigation() {
               </div>
 
               <div className="space-y-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#356447]">
-                  Campaign
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
+                  Navigate
                 </p>
                 <div className="grid gap-4">
                   {PRIMARY_LINKS.map(link => (
                     <a
                       key={link.href}
                       href={link.href}
-                      className="text-xl font-semibold text-[#132C24]"
+                      className="text-xl font-semibold text-[#1F4D3B]"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.label}
@@ -175,14 +172,6 @@ export function Navigation() {
                   ))}
                 </div>
               </div>
-
-              <a
-                href="#download"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="rounded-full bg-[#10301f] px-8 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#B8E4B3]"
-              >
-                Download Deck
-              </a>
             </motion.div>
           </motion.div>
         )}

@@ -25,7 +25,7 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
   return (
     <section
       id={location.id}
-      className={`py-20 ${isEven ? 'bg-white' : 'bg-[#F7FAF7]'}`}
+      className={`py-20 ${isEven ? 'bg-[#F6F2E8]' : 'bg-[#EEF3EA]'}`}
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -46,19 +46,19 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
                   className="h-12 w-auto object-contain"
                 />
               )}
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#356447]">
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
                 {location.shortName}
               </span>
             </div>
-            <h3 className="text-balance font-serif text-4xl text-[#132C24]">{location.name}</h3>
+            <h3 className="text-balance font-serif text-4xl text-[#1F4D3B]">{location.name}</h3>
             {location.tagline && (
               <p className="text-sm uppercase tracking-[0.2em] text-[#6E8A7E]">
                 {location.tagline}
               </p>
             )}
-            <p className="text-lg leading-relaxed text-slate-600">{location.description}</p>
+            <p className="text-lg leading-relaxed text-[#365A47]">{location.description}</p>
             {location.signature && location.signature !== location.description && (
-              <p className="text-base italic text-slate-500">{location.signature}</p>
+              <p className="text-base italic text-[#6F8277]">{location.signature}</p>
             )}
 
             {location.website && (
@@ -67,7 +67,7 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
                   href={location.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-[#10301f] px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#B8E4B3] transition hover:bg-[#16472f]"
+                  className="inline-flex items-center justify-center rounded-full bg-[#D86C3B] px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-[0_16px_40px_-24px_rgba(216,108,59,0.6)] transition hover:bg-[#E27D4E]"
                 >
                   Visit winery
                 </a>
@@ -75,14 +75,14 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
             )}
 
             {location.features && location.features.length > 0 && (
-              <div className="rounded-2xl border border-[#DDE5DC] bg-white/70 p-6 backdrop-blur-sm">
-                <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-[#356447]">
+              <div className="rounded-3xl border border-[#E4E8E0] bg-white/85 p-6 backdrop-blur-xl shadow-[0_24px_70px_-40px_rgba(31,77,59,0.35)]">
+                <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
                   Campaign Highlights
                 </h4>
-                <ul className="mt-4 space-y-3 text-sm text-slate-600">
+                <ul className="mt-4 space-y-3 text-sm text-[#365A47]">
                   {location.features.map(feature => (
                     <li key={feature} className="flex items-start gap-2">
-                      <Sparkles className="mt-1 h-4 w-4 text-[#B8E4B3]" />
+                      <Sparkles className="mt-1 h-4 w-4 text-[#E3C77D]" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -118,8 +118,8 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
                     onClick={() => setActiveGalleryIndex(imgIndex)}
                     className={`relative h-24 overflow-hidden rounded-xl border transition ${
                       activeGalleryIndex === imgIndex
-                        ? 'border-[#10301f]'
-                        : 'border-transparent hover:border-[#B8E4B3]'
+                        ? 'border-[#1F4D3B]'
+                        : 'border-transparent hover:border-[#E3C77D]'
                     }`}
                     aria-label={`View ${location.name} gallery image ${imgIndex + 1}`}
                   >

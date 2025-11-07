@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export function HeroSection() {
   return (
-    <section id="top" className="relative flex min-h-[80vh] items-center overflow-hidden bg-[#0f1b17]">
+    <section id="top" className="relative flex min-h-[80vh] items-center overflow-hidden bg-[#143024]">
       <div className="absolute inset-0">
         <Image
           src="/images/hero/sustainability-collection-hero.jpeg"
@@ -14,12 +14,12 @@ export function HeroSection() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#0f1b17]/70 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-[#143024]/78 backdrop-blur-[2px]" />
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-24 text-center sm:px-10">
         <motion.span
-          className="mb-6 text-xs font-semibold uppercase tracking-[0.4em] text-[#D8F2D2]"
+          className="mb-6 text-xs font-semibold uppercase tracking-[0.4em] text-[#E3C77D]"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -54,13 +54,13 @@ export function HeroSection() {
         >
           <a
             href="#producers"
-            className="rounded-full bg-[#B8E4B3] px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#10301f] transition hover:bg-[#CFEEC8]"
+            className="rounded-full bg-[#D86C3B] px-8 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-[0_18px_44px_-24px_rgba(216,108,59,0.65)] transition hover:bg-[#E27D4E]"
           >
             Meet the producers
           </a>
           <a
             href="#impact"
-            className="rounded-full border border-white/60 px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-white/10"
+            className="rounded-full border border-white/60 px-8 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:bg-white/15"
           >
             Explore impact metrics
           </a>

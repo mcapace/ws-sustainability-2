@@ -29,7 +29,7 @@ const PILLARS = [
 
 export function BrandComparison() {
   return (
-    <section id="impact" className="bg-[#10301f] py-24">
+    <section id="impact" className="bg-[#1F4D3B] py-24">
       <div className="mx-auto max-w-6xl px-6 text-white lg:px-8">
         <motion.h2
           className="text-center text-balance font-serif text-4xl sm:text-5xl"
@@ -56,13 +56,13 @@ export function BrandComparison() {
           {PILLARS.map((pillar, index) => (
             <motion.article
               key={pillar.title}
-              className="relative rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-lg transition hover:bg-white/10"
+              className="relative rounded-3xl border border-white/15 bg-white/10 p-8 backdrop-blur-lg transition hover:bg-white/15"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#B8E4B3]/25 text-[#B8E4B3]">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#E3C77D]/25 text-[#E3C77D]">
                 <pillar.icon className="h-7 w-7" />
               </div>
               <h3 className="mt-6 text-2xl font-semibold">{pillar.title}</h3>

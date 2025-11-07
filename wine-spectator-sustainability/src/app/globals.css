@@ -2,56 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Refined Luxury Color Palette */
+/* Campaign Color Palette */
 :root {
-  /* Primary Palette */
-  --white: #FFFFFF;
-  --off-white: #FAFAF8;
-  --cream: #F7F3F0;
-  --light-gray: #E8E6E1;
-  --medium-gray: #9B9691;
-  --charcoal: #2C2926;
-  --rich-black: #1A1815;
-  
-  /* Accent Colors */
-  --gold: #C9A961;  /* Refined gold, not too bright */
-  --gold-light: #E4D4A8;
-  --gold-dark: #9C7F3E;
-  --burgundy: #6B2737;  /* For Barclay Rex accents */
-  --navy: #1E3A5F;  /* Campaign accent */
-  
-  /* Backgrounds */
-  --bg-primary: var(--off-white);
-  --bg-secondary: var(--white);
-  --bg-accent: var(--cream);
-  
-  /* Typography */
-  --font-display: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
-  --font-accent: 'Cormorant Garamond', serif;
-  
-  /* Spacing */
-  --section-padding: clamp(5rem, 10vw, 8rem);
-  --container-padding: clamp(2rem, 5vw, 4rem);
-  
-  /* Animation Timings */
+  --forest: #1F4D3B;
+  --canopy: #2F6B4C;
+  --sage: #EEF3EA;
+  --cream: #F6F2E8;
+  --warm-sun: #D86C3B;
+  --champagne: #E3C77D;
+  --cloud: #E4E8E0;
+  --ink: #143024;
+  --slate: #365A47;
+  --muted: #6F8277;
+
+  --shadow-subtle: 0 16px 50px -30px rgba(31, 77, 59, 0.45);
+  --shadow-medium: 0 28px 80px -32px rgba(31, 77, 59, 0.35);
+  --shadow-strong: 0 36px 110px -34px rgba(22, 58, 43, 0.45);
+
   --timing-fast: 0.2s;
-  --timing-normal: 0.3s;
-  --timing-slow: 0.6s;
-  
-  /* Shadows */
-  --shadow-subtle: 0 2px 8px rgba(44, 41, 38, 0.08);
-  --shadow-medium: 0 4px 16px rgba(44, 41, 38, 0.12);
-  --shadow-strong: 0 8px 32px rgba(44, 41, 38, 0.16);
-  --shadow-elegant: 0 4px 12px rgba(0, 0, 0, 0.05);
-  --shadow-elegant-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --timing-normal: 0.35s;
+  --timing-slow: 0.65s;
+
+  --section-padding: clamp(5rem, 9vw, 8rem);
+  --container-padding: clamp(2rem, 5vw, 4rem);
 }
 
 /* Refined Body Styles */
 body {
-  background: var(--bg-primary);
-  color: var(--charcoal);
-  font-family: var(--font-body);
+  background: var(--sage);
+  color: var(--ink);
   line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -81,8 +60,8 @@ body {
 .btn-luxury-premium {
   position: relative;
   padding: 1rem 2rem;
-  background: var(--charcoal);
-  color: var(--white);
+  background: var(--forest);
+  color: #ffffff;
   border: none;
   font-weight: 500;
   text-transform: uppercase;
@@ -92,10 +71,10 @@ body {
 }
 
 .btn-luxury-premium:hover {
-  background: var(--gold);
-  color: var(--charcoal);
+  background: var(--warm-sun);
+  color: var(--cream);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-elegant-lg);
+  box-shadow: var(--shadow-medium);
 }
 
 .btn-luxury-premium:active {
@@ -106,8 +85,8 @@ body {
   position: relative;
   padding: 1rem 2rem;
   background: transparent;
-  color: var(--charcoal);
-  border: 1px solid var(--charcoal);
+  color: var(--forest);
+  border: 1px solid var(--forest);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -116,10 +95,10 @@ body {
 }
 
 .btn-luxury-outline:hover {
-  background: var(--charcoal);
-  color: var(--white);
+  background: var(--forest);
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-elegant-lg);
+  box-shadow: var(--shadow-medium);
 }
 
 /* Utility Classes */
@@ -137,33 +116,33 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--light-gray);
+  background: var(--cloud);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gold);
+  background: var(--canopy);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-dark);
+  background: var(--forest);
 }
 
 /* Focus States */
 *:focus {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--warm-sun);
   outline-offset: 2px;
 }
 
 /* Selection Styles */
 ::selection {
-  background: var(--gold);
-  color: var(--charcoal);
+  background: var(--warm-sun);
+  color: #ffffff;
 }
 
 ::-moz-selection {
-  background: var(--gold);
-  color: var(--charcoal);
+  background: var(--warm-sun);
+  color: #ffffff;
 }
 
 /* Smooth Transitions */
@@ -176,6 +155,10 @@ body {
   :root {
     --section-padding: clamp(3rem, 8vw, 6rem);
     --container-padding: clamp(1rem, 4vw, 2rem);
+  }
+
+  body {
+    background: var(--cream);
   }
 }
 

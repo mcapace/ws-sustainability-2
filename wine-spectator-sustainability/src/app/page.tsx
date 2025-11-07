@@ -24,7 +24,7 @@ if (typeof window !== 'undefined') {
 export default function Home() {
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-[#F7FAF7]">
+      <div className="min-h-screen bg-transparent">
         <SkipToMainContent />
         <Navigation />
         
