@@ -28,22 +28,23 @@ export function HeroSection() {
         </motion.span>
 
         <motion.h1
-          className="max-w-3xl text-balance font-serif text-4xl text-white sm:text-5xl lg:text-6xl"
+          className="max-w-5xl text-balance font-serif text-4xl text-white sm:text-5xl lg:text-[3.5rem]"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          Stewardship in Every Pour
+          Innovators and visionary leaders are driving a new era of sustainable winemaking.
         </motion.h1>
 
         <motion.p
-          className="mt-6 max-w-2xl text-balance text-lg text-slate-100/80 sm:text-xl"
+          className="mt-6 max-w-3xl text-balance text-lg text-slate-100/85 sm:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Six wineries across three continents prove that regenerative farming, circular design,
-          and community investment can sit at the same table as world-class wine.
+          Their forward-thinking approaches to biodiversity, renewable energy, and environmental stewardship
+          are shaping a more sustainable and resilient future. Their commitment proves that great wines can
+          honor both craft and the planet.
         </motion.p>
 
         <motion.div

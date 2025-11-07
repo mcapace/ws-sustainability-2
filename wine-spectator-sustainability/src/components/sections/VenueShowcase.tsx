@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Leaf, Sparkles } from 'lucide-react';
 import { venueData } from '@/data/venues';
@@ -53,8 +54,20 @@ export function VenueShowcase() {
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
               <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
-                <Leaf className="h-5 w-5 text-[#E3C77D]" />
-                {location.shortName}
+                {location.logo ? (
+                  <div className="relative h-7 w-24">
+                    <Image
+                      src={location.logo}
+                      alt={`${location.shortName} logo`}
+                      fill
+                      className="object-contain"
+                      sizes="96px"
+                    />
+                  </div>
+                ) : (
+                  <Leaf className="h-5 w-5 text-[#E3C77D]" />
+                )}
+                <span>{location.shortName}</span>
               </div>
 
               <h3 className="mt-6 text-2xl font-semibold text-[#1F4D3B]">{location.name}</h3>
