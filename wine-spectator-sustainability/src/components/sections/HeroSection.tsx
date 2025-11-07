@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export function HeroSection() {
   return (
-    <section id="top" className="relative flex min-h-[80vh] items-center overflow-hidden bg-[#143024]">
+    <section id="top" className="relative flex min-h-[92vh] items-center overflow-hidden bg-[#143024]">
       <div className="absolute inset-0">
         <Image
           src="/images/hero/sustainability-collection-hero.jpeg"
@@ -14,12 +14,13 @@ export function HeroSection() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#143024]/78 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0e221a]/90 via-[#143024]/80 to-[#0b1a14]/88" />
+        <div className="absolute inset-0 bg-[url('/images/hero/pattern-noise.png')] opacity-20 mix-blend-soft-light" />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-24 text-center sm:px-10">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-6 pb-24 pt-32 text-center sm:px-10">
         <motion.span
-          className="mb-6 text-xs font-semibold uppercase tracking-[0.4em] text-[#E3C77D]"
+          className="mb-5 text-xs font-semibold uppercase tracking-[0.4em] text-[#E3C77D]/90"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -28,16 +29,16 @@ export function HeroSection() {
         </motion.span>
 
         <motion.h1
-          className="max-w-5xl text-balance font-serif text-4xl text-white sm:text-5xl lg:text-[3.5rem]"
+          className="max-w-5xl text-balance font-serif text-[2.75rem] text-white sm:text-[3.25rem] lg:text-[3.75rem]"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          Innovators and visionary leaders are driving a new era of sustainable winemaking.
+          Wines Leading the Way for a Sustainable Future
         </motion.h1>
 
         <motion.p
-          className="mt-6 max-w-3xl text-balance text-lg text-slate-100/85 sm:text-xl"
+          className="mt-6 max-w-3xl text-balance text-lg text-white/90 sm:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}

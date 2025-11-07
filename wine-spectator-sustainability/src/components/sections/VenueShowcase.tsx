@@ -53,9 +53,9 @@ export function VenueShowcase() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
+              <div className="flex items-center justify-center gap-3 pb-4">
                 {location.logo ? (
-                  <div className="relative h-7 w-24">
+                  <div className="relative h-8 w-28">
                     <Image
                       src={location.logo}
                       alt={`${location.shortName} logo`}
@@ -65,9 +65,8 @@ export function VenueShowcase() {
                     />
                   </div>
                 ) : (
-                  <Leaf className="h-5 w-5 text-[#E3C77D]" />
+                  <Leaf className="h-6 w-6 text-[#E3C77D]" />
                 )}
-                <span>{location.shortName}</span>
               </div>
 
               <h3 className="mt-6 text-2xl font-semibold text-[#1F4D3B]">{location.name}</h3>

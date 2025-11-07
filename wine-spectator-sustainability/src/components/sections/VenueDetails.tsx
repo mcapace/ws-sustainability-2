@@ -36,19 +36,22 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex flex-wrap items-center gap-4">
-              {location.logo && (
-                <Image
-                  src={location.logo}
-                  alt={`${location.name} logo`}
-                  width={160}
-                  height={60}
-                  className="h-12 w-auto object-contain"
-                />
+            <div className="flex w-full items-center justify-start gap-3">
+              {location.logo ? (
+                <div className="relative h-10 w-32">
+                  <Image
+                    src={location.logo}
+                    alt={`${location.name} logo`}
+                    fill
+                    className="object-contain"
+                    sizes="128px"
+                  />
+                </div>
+              ) : (
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
+                  {location.shortName}
+                </span>
               )}
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
-                {location.shortName}
-              </span>
             </div>
             <h3 className="text-balance font-serif text-4xl text-[#1F4D3B]">{location.name}</h3>
             {location.tagline && (
