@@ -23,7 +23,7 @@ const PRODUCER_LOGOS = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-[#0f1b17] text-white">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#0f1b17] text-white" id="footer">
       <div className="absolute inset-0 -z-10">
         <motion.div
           className="absolute -top-40 -left-32 h-80 w-80 rounded-full bg-[#1f3d2b]/50 blur-3xl"
