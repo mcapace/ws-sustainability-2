@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/react';
-import { playfairDisplay, inter, cormorantGaramond } from './fonts';
+import { campaignDisplay, campaignBody, campaignAccent } from './fonts';
 import { OrganizationStructuredData, BreadcrumbStructuredData } from '@/components/seo/StructuredData';
 import { AnalyticsProviderWrapper } from '@/components/providers/AnalyticsProviderWrapper';
 
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
       'Discover regenerative, coastal, and community-driven pillars behind Wine Spectator’s sustainability cohort.',
     images: [
       {
-        url: '/images/hero/sustainability-header.jpg',
+        url: '/images/hero/sustainability-collection-hero.jpeg',
         width: 1200,
         height: 630,
         alt: 'Wine Spectator Sustainability hero imagery',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: 'Wine Spectator Sustainability | Stewardship in Every Pour',
     description:
       'Six wineries, three pillars, one playbook for climate-forward storytelling curated by Wine Spectator.',
-    images: ['/images/hero/sustainability-header.jpg'],
+    images: ['/images/hero/sustainability-collection-hero.jpeg'],
     creator: '@WineSpectator',
   },
   verification: {
@@ -79,28 +79,14 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         {/* Preload critical fonts */}
-        <link
-          rel="preload"
-          href="/_next/static/media/playfair-display.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/_next/static/media/inter.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
         {/* Critical CSS inline */}
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              html { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-              .font-display { font-family: ${playfairDisplay.style.fontFamily}, serif; }
-              .font-body { font-family: ${inter.style.fontFamily}, system-ui, sans-serif; }
-              .font-accent { font-family: ${cormorantGaramond.style.fontFamily}, serif; }
+              html { font-family: ${campaignBody.style.fontFamily}, system-ui, sans-serif; }
+              .font-display { font-family: ${campaignDisplay.style.fontFamily}, serif; }
+              .font-body { font-family: ${campaignBody.style.fontFamily}, system-ui, sans-serif; }
+              .font-accent { font-family: ${campaignAccent.style.fontFamily}, sans-serif; }
             `,
           }}
         />
@@ -108,7 +94,7 @@ export default function RootLayout({
         <BreadcrumbStructuredData />
       </head>
       <body
-        className={`${playfairDisplay.variable} ${inter.variable} ${cormorantGaramond.variable} antialiased`}
+        className={`${campaignDisplay.variable} ${campaignBody.variable} ${campaignAccent.variable} antialiased`}
       >
         <AnalyticsProviderWrapper>
           {children}
