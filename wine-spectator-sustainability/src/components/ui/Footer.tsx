@@ -1,116 +1,145 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
+
+const PRODUCERS = [
+  { name: 'Champagne Lallier', region: 'Aÿ, France', anchor: '#lallier' },
+  { name: 'Firetree Vineyards', region: 'Los Carneros, CA', anchor: '#firetree' },
+  { name: 'Gloria Ferrer', region: 'Carneros, CA', anchor: '#gloria-ferrer' },
+  { name: 'San Simeon Wines', region: 'Central Coast, CA', anchor: '#san-simeon' },
+  { name: 'WillaKenzie Estate', region: 'Willamette Valley, OR', anchor: '#willakenzie' },
+  { name: 'Piccini 1882', region: 'Tuscany, Italy', anchor: '#piccini' },
+];
+
+const PRODUCER_LOGOS = [
+  { src: '/images/logos/lallier.jpg', alt: 'Champagne Lallier logo' },
+  { src: '/images/logos/firetree.png', alt: 'Firetree Vineyards logo' },
+  { src: '/images/logos/gloria-ferrer.png', alt: 'Gloria Ferrer logo' },
+  { src: '/images/logos/san-simeon.png', alt: 'San Simeon Wines logo' },
+  { src: '/images/logos/willakenzie.png', alt: 'WillaKenzie Estate logo' },
+  { src: '/images/logos/piccini.png', alt: 'Piccini 1882 logo' },
+];
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#DDE5DC] bg-[#F7FAF7] py-16">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-3">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#0f1b17] text-white">
+      <div className="absolute inset-0 -z-10">
+        <motion.div
+          className="absolute -top-40 -left-32 h-80 w-80 rounded-full bg-[#1f3d2b]/50 blur-3xl"
+          animate={{ opacity: [0.35, 0.6, 0.35], scale: [1, 1.08, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute bottom-[-10rem] right-[-6rem] h-96 w-96 rounded-full bg-[#356447]/40 blur-3xl"
+          animate={{ opacity: [0.25, 0.55, 0.25], scale: [1, 0.92, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-6 py-20 lg:px-8">
+        <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr]">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#356447]">
-              Wine Spectator
+            <p className="text-xs font-semibold uppercase tracking-[0.45em] text-[#9bc5a1]">
+              Campaign Activation
             </p>
-            <p className="mt-3 text-balance text-lg text-[#132C24]">
-              Sustainability isn’t a sidebar story. It’s the headline. Let us help you tell it with
-              data, imagery, and experiences that resonate.
+            <h2 className="text-balance font-serif text-4xl leading-tight text-white">
+              Keep sustainability in the spotlight.
+            </h2>
+            <p className="max-w-xl text-lg text-white/70">
+              Partner with Wine Spectator to shape the Sustainability 2025 narrative—tailor assets, briefings,
+              and immersive storytelling for your audience.
             </p>
+            <div className="flex flex-wrap gap-4">
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href="mailto:sustainability@winespectator.com"
+                className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#10301f] shadow-[0_12px_40px_-18px_rgba(255,255,255,0.6)] transition hover:bg-[#B8E4B3] hover:text-[#10301f]"
+              >
+                Contact partnerships
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href="mailto:sustainability@winespectator.com?subject=Wine%20Spectator%20Sustainability%20Media%20Kit"
+                className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:border-white hover:text-[#B8E4B3]"
+              >
+                Request media kit
+              </motion.a>
+            </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
           >
-            <h5 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#356447]">
-              Producer quick links
-            </h5>
-            <ul className="mt-4 space-y-2 text-sm text-[#10301f]">
-              <li>
-                <a className="hover:text-[#356447]" href="#firetree">
-                  Firetree Vineyards (CA)
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-[#356447]" href="#gloria-ferrer">
-                  Gloria Ferrer (Carneros)
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-[#356447]" href="#lallier">
-                  Champagne Lallier (Aÿ, FR)
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-[#356447]" href="#piccini">
-                  Piccini 1882 (Tuscany)
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-[#356447]" href="#san-simeon">
-                  San Simeon Wines (Central Coast)
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-[#356447]" href="#willakenzie">
-                  WillaKenzie Estate (Willamette)
-                </a>
-              </li>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.35em] text-[#9bc5a1]">
+              Featured Producers
+            </h3>
+            <ul className="mt-6 space-y-4 text-sm text-white/80">
+              {PRODUCERS.map(producer => (
+                <motion.li
+                  key={producer.name}
+                  whileHover={{ x: 6 }}
+                  className="flex items-center justify-between gap-6"
+                >
+                  <a href={producer.anchor} className="font-medium hover:text-white">
+                    {producer.name}
+                  </a>
+                  <span className="text-xs uppercase tracking-[0.25em] text-white/40">
+                    {producer.region}
+                  </span>
+                </motion.li>
+              ))}
             </ul>
           </motion.div>
-
-          <motion.div
-            id="activation"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-          >
-            <h5 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#356447]">
-              Activate the campaign
-            </h5>
-            <p className="mt-4 text-sm text-[#10301f]">
-              To schedule interviews, request tastings, or build custom sustainability content,
-              drop us a note.
-            </p>
-            <a
-              href="mailto:sustainability@winespectator.com"
-              className="mt-4 inline-flex rounded-full bg-[#10301f] px-6 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-[#B8E4B3] transition hover:bg-[#16472f]"
-            >
-              Contact team
-            </a>
-          </motion.div>
         </div>
 
-        <div id="media" className="mt-16 grid gap-10 rounded-2xl border border-[#DDE5DC] bg-white p-8 md:grid-cols-2">
-          <div>
-            <h6 className="text-xs font-semibold uppercase tracking-[0.3em] text-[#356447]">
-              Media & trade assets
-            </h6>
-            <p className="mt-3 text-sm text-[#10301f]">
-              Download stills, logos, bottle shots, and sustainability fact sheets ready for
-              editorial and trade use.
-            </p>
-          </div>
-          <div className="flex items-center justify-end gap-3">
-            <a
-              id="download"
-              href="mailto:sustainability@winespectator.com?subject=Wine%20Spectator%20Sustainability%20Media%20Kit"
-              className="rounded-full border border-[#10301f] px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#10301f] transition hover:bg-[#10301f] hover:text-[#B8E4B3]"
-            >
-              Request media kit
-            </a>
-          </div>
-        </div>
+        <motion.div
+          id="media"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-16 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl"
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-[#9bc5a1]">Media toolkit</p>
+          <p className="mt-3 max-w-2xl text-sm text-white/70">
+            Curated stills, logos, bottle photography, and sustainability metrics are available for editorial,
+            trade, and partnership placements—crafted to make the campaign sparkle across channels.
+          </p>
+        </motion.div>
 
-        <div className="mt-12 border-t border-[#DDE5DC] pt-6 text-center text-xs uppercase tracking-[0.3em] text-[#6E8A7E]">
-          © {new Date().getFullYear()} Wine Spectator. Crafted for sustainability storytelling.
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 flex flex-wrap items-center justify-center gap-8 lg:justify-between"
+        >
+          {PRODUCER_LOGOS.map(logo => (
+            <motion.div
+              key={logo.src}
+              whileHover={{ scale: 1.05, y: -4 }}
+              className="relative h-10 w-32 overflow-hidden grayscale hover:grayscale-0 transition"
+            >
+              <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="mt-20 border-t border-white/10 pt-8 text-center text-xs uppercase tracking-[0.3em] text-white/40">
+          © {new Date().getFullYear()} Wine Spectator · Sustainability Collection 2025
         </div>
       </div>
     </footer>
