@@ -1,9 +1,9 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
+  "buildCommand": "cd wine-spectator-sustainability && npm run build",
+  "outputDirectory": "wine-spectator-sustainability/.next",
   "framework": "nextjs",
-  "installCommand": "npm install --legacy-peer-deps",
-  "devCommand": "npm run dev",
+  "installCommand": "cd wine-spectator-sustainability && npm install --legacy-peer-deps",
+  "devCommand": "cd wine-spectator-sustainability && npm run dev",
   "regions": ["iad1"],
   "functions": {
     "app/api/**/*.ts": {
