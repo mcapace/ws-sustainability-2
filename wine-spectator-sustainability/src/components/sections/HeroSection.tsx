@@ -1,12 +1,71 @@
 'use client';
 
+import { useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { useGsapTimeline } from '@/lib/animations';
+import { MagneticHover } from '@/components/animations/UtilityAnimations';
+import { useInteractionAnalytics } from '@/components/providers/AnalyticsProvider';
 
 export function HeroSection() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const parallaxRef = useRef<HTMLDivElement | null>(null);
+  const highlightRef = useRef<HTMLDivElement | null>(null);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
+  const { trackInteraction } = useInteractionAnalytics();
+
+  useGsapTimeline(() => {
+    if (!parallaxRef.current || !sectionRef.current) return null;
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
+
+    timeline.to(parallaxRef.current, { yPercent: -18, scale: 1.05 }, 0);
+
+    return timeline;
+  }, { deps: [] });
+
+  useGsapTimeline(() => {
+    if (!sectionRef.current) return null;
+
+    const timeline = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+    timeline
+      .fromTo(
+        sectionRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8 },
+      )
+      .fromTo(
+        highlightRef.current,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 1 },
+        0.2,
+      )
+      .fromTo(
+        ctaRef.current,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        0.6,
+      );
+
+    return timeline;
+  }, { deps: [] });
+
   return (
-    <section id="top" className="relative flex min-h-[92vh] items-center overflow-hidden bg-[#143024]">
-      <div className="absolute inset-0">
+    <section
+      ref={sectionRef}
+      id="top"
+      className="relative flex min-h-[92vh] items-center overflow-hidden bg-[#143024]"
+    >
+      <div className="absolute inset-0" ref={parallaxRef}>
         <Image
           src="/images/hero/sustainability-collection-hero.jpeg"
           alt="Sunlit vineyard terraces with sustainable farming"
@@ -16,6 +75,10 @@ export function HeroSection() {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#0e221a]/90 via-[#143024]/80 to-[#0b1a14]/88" />
         <div className="absolute inset-0 bg-[url('/images/hero/pattern-noise.png')] opacity-20 mix-blend-soft-light" />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(227,199,125,0.28),transparent_45%)]"
+          ref={highlightRef}
+        />
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-6 pb-24 pt-32 text-center sm:px-10">
@@ -53,19 +116,34 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35 }}
+          ref={ctaRef}
         >
-          <a
-            href="#producers"
-            className="rounded-full bg-[#D86C3B] px-8 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-[0_18px_44px_-24px_rgba(216,108,59,0.65)] transition hover:bg-[#E27D4E]"
-          >
-            Meet the producers
-          </a>
-          <a
-            href="#impact"
-            className="rounded-full border border-white/60 px-8 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:bg-white/15"
-          >
-            Explore impact metrics
-          </a>
+          <MagneticHover>
+            <a
+              href="#producers"
+              className="rounded-full bg-[#D86C3B] px-8 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-[0_18px_44px_-24px_rgba(216,108,59,0.65)] transition hover:bg-[#E27D4E]"
+              onClick={() =>
+                trackInteraction('hero_cta_click', {
+                  target: 'producers',
+                })
+              }
+            >
+              Meet the producers
+            </a>
+          </MagneticHover>
+          <MagneticHover>
+            <a
+              href="#impact"
+              className="rounded-full border border-white/60 px-8 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:bg-white/15"
+              onClick={() =>
+                trackInteraction('hero_cta_click', {
+                  target: 'impact',
+                })
+              }
+            >
+              Explore impact metrics
+            </a>
+          </MagneticHover>
         </motion.div>
 
         <motion.dl

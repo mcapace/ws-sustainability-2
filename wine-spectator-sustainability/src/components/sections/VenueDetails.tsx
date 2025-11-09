@@ -1,16 +1,24 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { venueData, VenueLocation } from '@/data/venues';
 import { Sparkles } from 'lucide-react';
+import { gsap } from 'gsap';
+import { useGsapTimeline } from '@/lib/animations';
+import { MagneticHover } from '@/components/animations/UtilityAnimations';
+import { useInteractionAnalytics } from '@/components/providers/AnalyticsProvider';
 
 const LOCATIONS = venueData.brands.flatMap(brand => brand.locations);
 
 export function WineryDetail({ location, index }: { location: VenueLocation; index: number }) {
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
   const isEven = index % 2 === 0;
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const galleryRef = useRef<HTMLDivElement | null>(null);
+  const { trackInteraction } = useInteractionAnalytics();
 
   const galleryImages =
     location.images?.gallery && location.images.gallery.length > 0
@@ -22,14 +30,37 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
     setActiveGalleryIndex(0);
   }, [location.id]);
 
+  useGsapTimeline(() => {
+    if (!sectionRef.current || !contentRef.current || !galleryRef.current) return null;
+
+    const tl = gsap.timeline({
+      defaults: { ease: 'power3.out', duration: 0.8 },
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 75%',
+      },
+    });
+
+    tl.from(contentRef.current, { y: 48, opacity: 0 })
+      .from(
+        galleryRef.current,
+        { y: 36, opacity: 0, scale: 0.96 },
+        '-=0.5',
+      );
+
+    return tl;
+  }, { deps: [location.id] });
+
   return (
     <section
+      ref={sectionRef}
       id={location.id}
       className={`py-20 ${isEven ? 'bg-[#F6F2E8]' : 'bg-[#EEF3EA]'}`}
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <motion.div
+            ref={contentRef}
             className={`space-y-6 ${isEven ? '' : 'lg:order-2'}`}
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -66,14 +97,22 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
 
             {location.website && (
               <div className="flex flex-wrap gap-4 pt-2">
-                <a
-                  href={location.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-[#D86C3B] px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-[0_16px_40px_-24px_rgba(216,108,59,0.6)] transition hover:bg-[#E27D4E]"
-                >
-                  Visit winery
-                </a>
+                <MagneticHover>
+                  <a
+                    href={location.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-[#D86C3B] px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-[0_16px_40px_-24px_rgba(216,108,59,0.6)] transition hover:bg-[#E27D4E]"
+                    onClick={() =>
+                      trackInteraction('winery_cta_click', {
+                        cta: 'visit_website',
+                        locationId: location.id,
+                      })
+                    }
+                  >
+                    Visit winery
+                  </a>
+                </MagneticHover>
               </div>
             )}
 
@@ -95,6 +134,7 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
           </motion.div>
 
           <motion.div
+            ref={galleryRef}
             className={`${isEven ? '' : 'lg:order-1'}`}
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +158,13 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
                 {galleryImages.map((img, imgIndex) => (
                   <button
                     key={img}
-                    onClick={() => setActiveGalleryIndex(imgIndex)}
+                    onClick={() => {
+                      setActiveGalleryIndex(imgIndex);
+                      trackInteraction('winery_gallery_select', {
+                        locationId: location.id,
+                        index: imgIndex,
+                      });
+                    }}
                     className={`relative h-24 overflow-hidden rounded-xl border transition ${
                       activeGalleryIndex === imgIndex
                         ? 'border-[#1F4D3B]'

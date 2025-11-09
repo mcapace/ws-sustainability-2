@@ -212,3 +212,10 @@ const { currentValue, formattedValue } = useCounterAnimation(1000, {
     },
   },
 } as const;
+
+// Orchestrator utilities
+export {
+  getAnimationOrchestrator,
+  useGsapTimeline,
+  useReducedMotionPreference,
+} from './orchestrator';

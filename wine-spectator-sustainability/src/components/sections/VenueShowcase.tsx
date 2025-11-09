@@ -1,15 +1,51 @@
 'use client';
 
+import { useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Leaf, Sparkles } from 'lucide-react';
 import { venueData } from '@/data/venues';
+import { gsap } from 'gsap';
+import { useGsapTimeline } from '@/lib/animations';
+import { MagneticHover } from '@/components/animations/UtilityAnimations';
+import { useInteractionAnalytics } from '@/components/providers/AnalyticsProvider';
 
 const LOCATIONS = venueData.brands.flatMap(brand => brand.locations);
 
 export function VenueShowcase() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
+  const { trackInteraction } = useInteractionAnalytics();
+
+  useGsapTimeline(() => {
+    if (!sectionRef.current || cardsRef.current.length === 0) return null;
+
+    const timeline = gsap.timeline({
+      defaults: { ease: 'power3.out', duration: 0.7 },
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 70%',
+      },
+    });
+
+    timeline.from(cardsRef.current, {
+      y: 48,
+      opacity: 0,
+      stagger: 0.12,
+      transformOrigin: '50% 100%',
+      rotateX: -6,
+    });
+
+    return timeline;
+  }, { deps: [] });
+
   return (
-    <section id="producers" className="bg-[#F6F2E8] py-24">
+    <section
+      ref={sectionRef}
+      id="producers"
+      className="relative overflow-hidden bg-[#F6F2E8] py-24"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(227,199,125,0.22),transparent_60%)]" />
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="text-center">
           <motion.p
@@ -43,7 +79,7 @@ export function VenueShowcase() {
           </motion.p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="relative mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {LOCATIONS.map((location, index) => (
             <motion.article
               key={location.id}
@@ -52,6 +88,11 @@ export function VenueShowcase() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
+              ref={element => {
+                if (element) {
+                  cardsRef.current[index] = element;
+                }
+              }}
             >
               <div className="flex items-center justify-center gap-3 pb-4">
                 {location.logo ? (
@@ -88,21 +129,37 @@ export function VenueShowcase() {
               )}
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <a
-                  href={`#${location.id}`}
-                  className="inline-flex items-center justify-center rounded-full border border-[#1F4D3B] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#1F4D3B] transition hover:bg-[#1F4D3B] hover:text-[#F6F2E8]"
-                >
-                  View spotlight
-                </a>
-                {location.website && (
+                <MagneticHover>
                   <a
-                    href={location.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full bg-[#D86C3B] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-[0_16px_40px_-24px_rgba(216,108,59,0.55)] transition hover:bg-[#E27D4E]"
+                    href={`#${location.id}`}
+                    className="inline-flex items-center justify-center rounded-full border border-[#1F4D3B] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#1F4D3B] transition hover:bg-[#1F4D3B] hover:text-[#F6F2E8]"
+                    onClick={() =>
+                      trackInteraction('showcase_cta_click', {
+                        cta: 'spotlight',
+                        locationId: location.id,
+                      })
+                    }
                   >
-                    Visit winery
+                    View spotlight
                   </a>
+                </MagneticHover>
+                {location.website && (
+                  <MagneticHover>
+                    <a
+                      href={location.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-full bg-[#D86C3B] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-[0_16px_40px_-24px_rgba(216,108,59,0.55)] transition hover:bg-[#E27D4E]"
+                      onClick={() =>
+                        trackInteraction('showcase_cta_click', {
+                          cta: 'visit_website',
+                          locationId: location.id,
+                        })
+                      }
+                    >
+                      Visit winery
+                    </a>
+                  </MagneticHover>
                 )}
               </div>
             </motion.article>

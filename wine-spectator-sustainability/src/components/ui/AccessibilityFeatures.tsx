@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Volume2, VolumeX, Eye, EyeOff, Keyboard, MousePointer } from 'lucide-react';
+import { useReducedMotionPreference } from '@/lib/animations';
 
 // Skip to main content link
 export function SkipToMainContent() {
@@ -25,6 +26,7 @@ export function AccessibilityToolbar() {
     largeText: false,
     screenReader: false,
   });
+  const { reducedMotion: orchestratorReducedMotion, setReducedMotion } = useReducedMotionPreference();
 
   useEffect(() => {
     // Check for user preferences
@@ -67,6 +69,14 @@ export function AccessibilityToolbar() {
       root.classList.remove('screen-reader-optimized');
     }
   }, [preferences]);
+
+  useEffect(() => {
+    setReducedMotion(preferences.reducedMotion);
+  }, [preferences.reducedMotion, setReducedMotion]);
+
+  useEffect(() => {
+    setPreferences(prev => ({ ...prev, reducedMotion: orchestratorReducedMotion }));
+  }, [orchestratorReducedMotion]);
 
   const togglePreference = (key: keyof typeof preferences) => {
     setPreferences(prev => ({ ...prev, [key]: !prev[key] }));
