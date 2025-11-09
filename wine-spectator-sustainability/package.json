@@ -23,7 +23,7 @@
     "test:accessibility": "pa11y http://localhost:4000",
     "test:performance": "npm run lighthouse && npm run test:accessibility",
     "precommit": "lint-staged",
-    "prepare": "husky install",
+    "prepare": "if [ -d .git ]; then husky install; fi",
     "optimize-images": "next-optimized-images",
     "sitemap": "next-sitemap",
     "security-audit": "npm audit",
