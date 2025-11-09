@@ -111,13 +111,13 @@ export function VenueShowcase() {
                   )}
                 </div>
                 {location.images.bottle && (
-                  <div className="relative h-36 w-14 sm:h-40 sm:w-16">
+                  <div className="relative h-48 w-20 sm:h-56 sm:w-24">
                     <Image
                       src={location.images.bottle}
                       alt={`${location.shortName} hero bottle`}
                       fill
                       className="object-contain drop-shadow-[0_20px_25px_rgba(20,48,36,0.25)]"
-                      sizes="64px"
+                      sizes="96px"
                       priority={index < 2}
                     />
                   </div>
