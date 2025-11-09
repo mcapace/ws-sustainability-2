@@ -63,7 +63,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="top"
-      className="relative flex min-h-screen md:min-h-[110vh] items-center overflow-hidden bg-[#143024]"
+      className="relative flex min-h-screen md:min-h-[110vh] items-center overflow-hidden"
     >
       <div className="absolute inset-0" ref={parallaxRef}>
         <Image
