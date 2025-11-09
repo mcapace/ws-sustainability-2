@@ -63,7 +63,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="top"
-      className="relative flex min-h-[92vh] items-center overflow-hidden bg-[#143024]"
+      className="relative flex min-h-screen md:min-h-[110vh] items-center overflow-hidden bg-[#143024]"
     >
       <div className="absolute inset-0" ref={parallaxRef}>
         <Image
@@ -71,7 +71,7 @@ export function HeroSection() {
           alt="Sunlit vineyard terraces with sustainable farming"
           fill
           priority
-          className="object-cover"
+          className="object-cover object-[center_top]"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#0e221a]/90 via-[#143024]/80 to-[#0b1a14]/88" />
         <div className="absolute inset-0 bg-[url('/images/hero/pattern-noise.png')] opacity-20 mix-blend-soft-light" />

@@ -94,19 +94,33 @@ export function VenueShowcase() {
                 }
               }}
             >
-              <div className="flex items-center justify-center gap-3 pb-4">
-                {location.logo ? (
-                  <div className="relative h-8 w-28">
+              <div className="flex items-center justify-between gap-3 pb-4">
+                <div className="flex flex-1 items-center justify-start gap-3">
+                  {location.logo ? (
+                    <div className="relative h-8 w-28">
+                      <Image
+                        src={location.logo}
+                        alt={`${location.shortName} logo`}
+                        fill
+                        className="object-contain"
+                        sizes="112px"
+                      />
+                    </div>
+                  ) : (
+                    <Leaf className="h-6 w-6 text-[#E3C77D]" />
+                  )}
+                </div>
+                {location.images.bottle && (
+                  <div className="relative h-36 w-14 sm:h-40 sm:w-16">
                     <Image
-                      src={location.logo}
-                      alt={`${location.shortName} logo`}
+                      src={location.images.bottle}
+                      alt={`${location.shortName} hero bottle`}
                       fill
-                      className="object-contain"
-                      sizes="96px"
+                      className="object-contain drop-shadow-[0_20px_25px_rgba(20,48,36,0.25)]"
+                      sizes="64px"
+                      priority={index < 2}
                     />
                   </div>
-                ) : (
-                  <Leaf className="h-6 w-6 text-[#E3C77D]" />
                 )}
               </div>
 
@@ -115,7 +129,9 @@ export function VenueShowcase() {
                 {location.tagline}
               </p>
 
-              <p className="mt-6 flex-1 text-[#365A47]">{location.description}</p>
+              <p className="mt-6 flex-1 text-[#365A47]">
+                {location.intro ?? location.description}
+              </p>
 
               {location.features && location.features.length > 0 && (
                 <ul className="mt-6 space-y-3 text-sm text-[#1F4D3B]">
