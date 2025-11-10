@@ -243,7 +243,7 @@ export const venueData: { brands: Brand[] } = {
               '/images/wineries/willakenzie/gallery-2.jpg',
               '/images/wineries/willakenzie/gallery-3.jpg',
             ],
-            bottle: '/images/bottles/willakenzie-estate-pinot.jpeg',
+            bottle: '/images/bottles/willakenzie-estate-pinot.png',
           },
           signature:
             'Oregon’s first LIVE-certified winery with Salmon-Safe stewardship across a 420-acre mosaic of microclimates.',
