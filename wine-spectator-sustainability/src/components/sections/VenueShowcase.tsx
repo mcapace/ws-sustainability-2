@@ -81,15 +81,7 @@ export function VenueShowcase() {
 
         <div className="relative mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {LOCATIONS.map((location, index) => {
-            const bottleTargetHeight = 260;
-            const aspectRatio = location.bottleDimensions
-              ? location.bottleDimensions.width / location.bottleDimensions.height
-              : 0.6;
-            const bottleDisplayWidth = Math.max(
-              Math.round(bottleTargetHeight * aspectRatio),
-              120,
-            );
-
+            const bottleBox = { width: 200, height: 260 };
             return (
               <motion.article
                 key={location.id}
@@ -104,34 +96,38 @@ export function VenueShowcase() {
                   }
                 }}
               >
-                <div className="relative mb-6 flex flex-col items-center justify-start gap-4 rounded-2xl bg-gradient-to-b from-[#F6F2E8] via-white to-[#F6F2E8] pb-8 pt-8 shadow-[inset_0_-1px_0_rgba(227,199,125,0.25)]">
+                <div className="relative mb-6 flex flex-col items-center gap-5 rounded-2xl bg-gradient-to-b from-[#F6F2E8] via-white to-[#F6F2E8] pb-8 pt-8 shadow-[inset_0_-1px_0_rgba(227,199,125,0.25)]">
                 {location.logo ? (
-                    <div className="relative h-14 w-36">
+                    <div className="relative h-16 w-40">
                     <Image
                       src={location.logo}
                       alt={`${location.shortName} logo`}
                       fill
                         className="object-contain"
-                        sizes="160px"
+                        sizes="200px"
                     />
                   </div>
                 ) : (
                     <Leaf className="h-6 w-6 text-[#E3C77D]" />
                 )}
                 {location.images.bottle && (
-                    <div
-                      className="flex items-end justify-center"
-                      style={{ height: bottleTargetHeight }}
-                    >
+                    <div className="flex items-end justify-center" style={{ height: bottleBox.height }}>
+                      <div
+                        className="relative w-full"
+                        style={{
+                          maxWidth: bottleBox.width,
+                          height: bottleBox.height,
+                        }}
+                      >
                     <Image
                       src={location.images.bottle}
                       alt={`${location.shortName} hero bottle`}
-                        width={bottleDisplayWidth}
-                        height={bottleTargetHeight}
-                        className="h-full w-auto object-contain drop-shadow-[0_30px_40px_rgba(20,48,36,0.2)]"
-                        sizes={`${bottleDisplayWidth}px`}
+                          fill
+                          className="object-contain drop-shadow-[0_30px_40px_rgba(20,48,36,0.2)]"
+                          sizes={`${bottleBox.width}px`}
                       priority={index < 2}
                     />
+                      </div>
                   </div>
                 )}
               </div>
