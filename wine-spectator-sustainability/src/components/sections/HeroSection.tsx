@@ -63,7 +63,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="top"
-      className="relative flex min-h-screen md:min-h-[110vh] items-center overflow-hidden"
+      className="relative isolate flex min-h-screen items-center justify-center bg-[#143024]"
     >
       <div className="absolute inset-0" ref={parallaxRef}>
         <Image
@@ -73,15 +73,16 @@ export function HeroSection() {
           priority
           className="object-cover object-[center_top]"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0e221a]/90 via-[#143024]/80 to-[#0b1a14]/88" />
-        <div className="absolute inset-0 bg-[url('/images/hero/pattern-noise.png')] opacity-20 mix-blend-soft-light" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0e221a]/80 via-[#143024]/70 to-[#0b1a14]/85" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#143024] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[url('/images/hero/pattern-noise.png')] opacity-15 mix-blend-soft-light" />
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(227,199,125,0.28),transparent_45%)]"
           ref={highlightRef}
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-6 pb-24 pt-32 text-center sm:px-10">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-6 pb-28 pt-40 text-center sm:px-10">
         <motion.span
           className="mb-5 text-xs font-semibold uppercase tracking-[0.4em] text-[#E3C77D]/90"
           initial={{ opacity: 0, y: 16 }}

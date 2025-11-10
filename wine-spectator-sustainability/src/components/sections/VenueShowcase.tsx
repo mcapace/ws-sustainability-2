@@ -94,30 +94,28 @@ export function VenueShowcase() {
                 }
               }}
             >
-              <div className="flex items-center justify-between gap-3 pb-4">
-                <div className="flex flex-1 items-center justify-start gap-3">
-                  {location.logo ? (
-                    <div className="relative h-8 w-28">
-                      <Image
-                        src={location.logo}
-                        alt={`${location.shortName} logo`}
-                        fill
-                        className="object-contain"
-                        sizes="112px"
-                      />
-                    </div>
-                  ) : (
-                    <Leaf className="h-6 w-6 text-[#E3C77D]" />
-                  )}
-                </div>
+              <div className="relative mb-6 flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-[#F6F2E8] via-white to-[#F6F2E8] pb-6 pt-8 shadow-[inset_0_-1px_0_rgba(227,199,125,0.25)]">
+                {location.logo ? (
+                  <div className="relative mb-5 h-10 w-32">
+                    <Image
+                      src={location.logo}
+                      alt={`${location.shortName} logo`}
+                      fill
+                      className="object-contain"
+                      sizes="128px"
+                    />
+                  </div>
+                ) : (
+                  <Leaf className="mb-5 h-6 w-6 text-[#E3C77D]" />
+                )}
                 {location.images.bottle && (
-                  <div className="relative h-48 w-20 sm:h-56 sm:w-24">
+                  <div className="relative h-56 w-24 sm:h-60 sm:w-28">
                     <Image
                       src={location.images.bottle}
                       alt={`${location.shortName} hero bottle`}
                       fill
-                      className="object-contain drop-shadow-[0_20px_25px_rgba(20,48,36,0.25)]"
-                      sizes="96px"
+                      className="object-contain drop-shadow-[0_25px_35px_rgba(20,48,36,0.22)]"
+                      sizes="120px"
                       priority={index < 2}
                     />
                   </div>
