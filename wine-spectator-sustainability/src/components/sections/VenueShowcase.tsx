@@ -80,20 +80,30 @@ export function VenueShowcase() {
         </div>
 
         <div className="relative mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {LOCATIONS.map((location, index) => (
-            <motion.article
-              key={location.id}
-              className="group relative flex h-full flex-col rounded-3xl border border-[#E4E8E0] bg-white/90 p-8 shadow-[0_28px_80px_-40px_rgba(31,77,59,0.35)] backdrop-blur-xl transition-transform hover:-translate-y-1 hover:shadow-[0_36px_90px_-40px_rgba(31,77,59,0.45)]"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              ref={element => {
-                if (element) {
-                  cardsRef.current[index] = element;
-                }
-              }}
-            >
+          {LOCATIONS.map((location, index) => {
+            const bottleTargetHeight = 240;
+            const aspectRatio = location.bottleDimensions
+              ? location.bottleDimensions.width / location.bottleDimensions.height
+              : 0.6;
+            const bottleDisplayWidth = Math.max(
+              Math.round(bottleTargetHeight * aspectRatio),
+              120,
+            );
+
+            return (
+              <motion.article
+                key={location.id}
+                className="group relative flex h-full flex-col rounded-3xl border border-[#E4E8E0] bg-white/90 p-8 shadow-[0_28px_80px_-40px_rgba(31,77,59,0.35)] backdrop-blur-xl transition-transform hover:-translate-y-1 hover:shadow-[0_36px_90px_-40px_rgba(31,77,59,0.45)]"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                ref={element => {
+                  if (element) {
+                    cardsRef.current[index] = element;
+                  }
+                }}
+              >
               <div className="relative mb-6 flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-[#F6F2E8] via-white to-[#F6F2E8] pb-6 pt-8 shadow-[inset_0_-1px_0_rgba(227,199,125,0.25)]">
                 {location.logo ? (
                   <div className="relative mb-5 h-10 w-32">
@@ -109,17 +119,17 @@ export function VenueShowcase() {
                   <Leaf className="mb-5 h-6 w-6 text-[#E3C77D]" />
                 )}
                 {location.images.bottle && (
-                  <div className="relative h-56 w-24 sm:h-60 sm:w-28">
+                    <div
+                      className="flex items-end justify-center"
+                      style={{ height: bottleTargetHeight }}
+                    >
                     <Image
                       src={location.images.bottle}
                       alt={`${location.shortName} hero bottle`}
-                      fill
-                      className="object-contain drop-shadow-[0_25px_35px_rgba(20,48,36,0.22)]"
-                      style={{
-                        transform: `scale(${location.bottleScale ?? 1.2})`,
-                        transformOrigin: 'center bottom',
-                      }}
-                      sizes="120px"
+                        width={bottleDisplayWidth}
+                        height={bottleTargetHeight}
+                        className="h-full w-auto object-contain drop-shadow-[0_25px_35px_rgba(20,48,36,0.22)]"
+                        sizes={`${bottleDisplayWidth}px`}
                       priority={index < 2}
                     />
                   </div>
@@ -181,7 +191,8 @@ export function VenueShowcase() {
                 )}
               </div>
             </motion.article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
