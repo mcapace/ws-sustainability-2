@@ -115,6 +115,10 @@ export function VenueShowcase() {
                       alt={`${location.shortName} hero bottle`}
                       fill
                       className="object-contain drop-shadow-[0_25px_35px_rgba(20,48,36,0.22)]"
+                      style={{
+                        transform: `scale(${location.bottleScale ?? 1.2})`,
+                        transformOrigin: 'center bottom',
+                      }}
                       sizes="120px"
                       priority={index < 2}
                     />

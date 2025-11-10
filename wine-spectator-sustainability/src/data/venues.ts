@@ -29,6 +29,7 @@ export interface VenueLocation {
     gallery: string[];
     bottle?: string;
   };
+  bottleScale?: number;
   features?: string[];
   signature?: string;
   coordinates?: {
@@ -100,6 +101,7 @@ export const venueData: { brands: Brand[] } = {
             ],
             bottle: '/images/bottles/lallier-reflexion.png',
           },
+          bottleScale: 1.35,
           signature:
             'Certified HVE and VDC Maison reintroducing biodiversity around its Oger winemaking facility in partnership with Terr’Api.',
           features: [
@@ -129,6 +131,7 @@ export const venueData: { brands: Brand[] } = {
             ],
             bottle: '/images/bottles/firetree-bunny-hills.png',
           },
+          bottleScale: 1.2,
           signature:
             'Family-owned estate working with winemaker Julien Fayard to steward Napa Green- and Fish Friendly Farming-certified vineyards through organic, regenerative practices.',
           features: [
@@ -158,6 +161,7 @@ export const venueData: { brands: Brand[] } = {
             ],
             bottle: '/images/bottles/gloria-ferrer-brut.png',
           },
+          bottleScale: 1.25,
           signature:
             'Over 40 years of méthode traditionnelle craftsmanship now backed by dual organic and CSWA certifications.',
           features: [
@@ -187,6 +191,7 @@ export const venueData: { brands: Brand[] } = {
             ],
             bottle: '/images/bottles/piccini-orvieto.png',
           },
+          bottleScale: 1.45,
           signature:
             'Five generations evolving from a 7-hectare vineyard into a global ambassador for eco-forward Chianti.',
           features: [
@@ -216,6 +221,7 @@ export const venueData: { brands: Brand[] } = {
             ],
             bottle: '/images/bottles/san-simeon-cab.png',
           },
+          bottleScale: 1.4,
           signature:
             'Fourth-generation family ownership marrying coastal elegance with innovation across CSWA-certified vineyards.',
           features: [
@@ -245,6 +251,7 @@ export const venueData: { brands: Brand[] } = {
             ],
             bottle: '/images/bottles/willakenzie-estate-pinot.png',
           },
+          bottleScale: 1.5,
           signature:
             'Oregon’s first LIVE-certified winery with Salmon-Safe stewardship across a 420-acre mosaic of microclimates.',
           features: [
