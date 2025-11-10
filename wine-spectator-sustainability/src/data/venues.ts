@@ -94,7 +94,7 @@ export const venueData: { brands: Brand[] } = {
           description:
             'Since its founding, Lallier Champagne has cherished its relationship with terroir and nature—crafting remarkable Champagnes guided by sincerity, curiosity, and respect for the environment.',
           website: 'https://www.champagne-lallier.com',
-          logo: '/images/logos/lallier.jpg',
+          logo: '/images/logos/lallier.png',
           images: {
             hero: '/images/wineries/lallier/hero.jpg',
             gallery: [

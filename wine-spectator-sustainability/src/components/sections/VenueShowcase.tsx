@@ -81,7 +81,7 @@ export function VenueShowcase() {
 
         <div className="relative mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {LOCATIONS.map((location, index) => {
-            const bottleTargetHeight = 240;
+            const bottleTargetHeight = 260;
             const aspectRatio = location.bottleDimensions
               ? location.bottleDimensions.width / location.bottleDimensions.height
               : 0.6;
@@ -104,19 +104,19 @@ export function VenueShowcase() {
                   }
                 }}
               >
-              <div className="relative mb-6 flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-[#F6F2E8] via-white to-[#F6F2E8] pb-6 pt-8 shadow-[inset_0_-1px_0_rgba(227,199,125,0.25)]">
+                <div className="relative mb-6 flex flex-col items-center justify-start gap-4 rounded-2xl bg-gradient-to-b from-[#F6F2E8] via-white to-[#F6F2E8] pb-8 pt-8 shadow-[inset_0_-1px_0_rgba(227,199,125,0.25)]">
                 {location.logo ? (
-                  <div className="relative mb-5 h-10 w-32">
+                    <div className="relative h-14 w-36">
                     <Image
                       src={location.logo}
                       alt={`${location.shortName} logo`}
                       fill
-                      className="object-contain"
-                      sizes="128px"
+                        className="object-contain"
+                        sizes="160px"
                     />
                   </div>
                 ) : (
-                  <Leaf className="mb-5 h-6 w-6 text-[#E3C77D]" />
+                    <Leaf className="h-6 w-6 text-[#E3C77D]" />
                 )}
                 {location.images.bottle && (
                     <div
@@ -128,7 +128,7 @@ export function VenueShowcase() {
                       alt={`${location.shortName} hero bottle`}
                         width={bottleDisplayWidth}
                         height={bottleTargetHeight}
-                        className="h-full w-auto object-contain drop-shadow-[0_25px_35px_rgba(20,48,36,0.22)]"
+                        className="h-full w-auto object-contain drop-shadow-[0_30px_40px_rgba(20,48,36,0.2)]"
                         sizes={`${bottleDisplayWidth}px`}
                       priority={index < 2}
                     />
