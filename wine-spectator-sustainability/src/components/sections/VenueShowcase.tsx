@@ -63,7 +63,7 @@ export function VenueShowcase() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.4 }}
           >
-            The 2025 Producer Cohort
+            The 2025 Producers
           </motion.p>
           <motion.h2
             className="mt-4 text-balance font-serif text-3xl text-[#1F4D3B] sm:text-4xl"
@@ -186,24 +186,6 @@ export function VenueShowcase() {
                     View spotlight
                   </a>
                 </MagneticHover>
-                {location.website && (
-                  <MagneticHover>
-                    <a
-                      href={location.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-full bg-[#D86C3B] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-[0_16px_40px_-24px_rgba(216,108,59,0.55)] transition hover:bg-[#E27D4E]"
-                      onClick={() =>
-                        trackInteraction('showcase_cta_click', {
-                          cta: 'visit_website',
-                          locationId: location.id,
-                        })
-                      }
-                    >
-                      Visit winery
-                    </a>
-                  </MagneticHover>
-                )}
               </div>
             </motion.article>
             );

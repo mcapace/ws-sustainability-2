@@ -90,8 +90,10 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
                 {location.tagline}
               </p>
             )}
-            <p className="text-lg leading-relaxed text-[#365A47]">{location.description}</p>
-            {location.signature && location.signature !== location.description && (
+            <p className="text-lg leading-relaxed text-[#365A47]">
+              {location.cardIntro}
+            </p>
+            {location.signature && (
               <p className="text-base italic text-[#6F8277]">{location.signature}</p>
             )}
 
@@ -119,7 +121,7 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
             {location.features && location.features.length > 0 && (
               <div className="rounded-3xl border border-[#E4E8E0] bg-white/85 p-6 backdrop-blur-xl shadow-[0_24px_70px_-40px_rgba(31,77,59,0.35)]">
                 <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
-                  Campaign Highlights
+                  Highlights
                 </h4>
                 <ul className="mt-4 space-y-3 text-sm text-[#365A47]">
                   {location.features.map(feature => (
@@ -129,6 +131,15 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+            {location.article && location.article.length > 0 && (
+              <div className="space-y-4">
+                {location.article.map((paragraph, idx) => (
+                  <p key={idx} className="text-base leading-relaxed text-[#365A47]">
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             )}
           </motion.div>
