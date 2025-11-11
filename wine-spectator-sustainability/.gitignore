@@ -22,6 +22,7 @@
 
 # misc
 *.pem
+.venv/
 
 # debug
 npm-debug.log*
