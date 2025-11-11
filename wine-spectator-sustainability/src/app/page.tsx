@@ -165,43 +165,47 @@ export default function Home() {
             desktop={[728, 90]}
             tablet={[728, 90]}
             mobile={[300, 50]}
-            className="mt-6"
+            className="mt-6 px-6"
+            sticky
           />
 
-          <main id="main-content">
-            <ErrorBoundary>
-              <HeroSection />
-            </ErrorBoundary>
+          <main id="main-content" className="mx-auto mt-10 flex w-full max-w-6xl gap-10 px-6 lg:px-8">
+            <div className="flex-1 space-y-16">
+              <ErrorBoundary>
+                <HeroSection />
+              </ErrorBoundary>
 
-            <VenueErrorBoundary>
-              <VenueShowcase locations={shuffledLocations} />
-            </VenueErrorBoundary>
+              <VenueErrorBoundary>
+                <VenueShowcase locations={shuffledLocations} />
+              </VenueErrorBoundary>
 
-            <AdSlot
-              slotId="gam-mid-rectangle"
-              label="Mid-Page Rectangle"
-              desktop={[300, 600]}
-              tablet={[300, 250]}
-              mobile={[300, 250]}
-              className="mt-16"
-            />
+              <ErrorBoundary>
+                <VenueDetails locations={shuffledLocations} />
+              </ErrorBoundary>
 
-            <ErrorBoundary>
-              <VenueDetails locations={shuffledLocations} />
-            </ErrorBoundary>
+              <ErrorBoundary>
+                <BrandComparison />
+              </ErrorBoundary>
+            </div>
 
-            <AdSlot
-              slotId="gam-bottom-banner"
-              label="Bottom Banner"
-              desktop={[728, 90]}
-              tablet={[468, 60]}
-              mobile={[300, 50]}
-              className="mt-16"
-            />
-
-            <ErrorBoundary>
-              <BrandComparison />
-            </ErrorBoundary>
+            <aside className="hidden w-72 flex-shrink-0 flex-col gap-12 lg:flex">
+              <AdSlot
+                slotId="gam-rail-upper"
+                label="Right Rail Rectangle"
+                desktop={[300, 250]}
+                tablet={[300, 250]}
+                mobile={[300, 250]}
+                className="sticky top-32"
+              />
+              <AdSlot
+                slotId="gam-rail-lower"
+                label="Right Rail Skyscraper"
+                desktop={[300, 600]}
+                tablet={[300, 250]}
+                mobile={[300, 250]}
+                className="sticky top-[420px]"
+              />
+            </aside>
           </main>
 
           <Footer />

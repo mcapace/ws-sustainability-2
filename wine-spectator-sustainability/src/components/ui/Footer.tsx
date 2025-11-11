@@ -75,17 +75,17 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-[0.35em] text-[#9bc5a1]">
               Featured Producers
             </h3>
-            <ul className="mt-6 space-y-4 text-sm text-white/80">
+            <ul className="mt-6 space-y-3 text-sm text-white/80">
               {PRODUCERS.map(producer => (
                 <motion.li
                   key={producer.name}
                   whileHover={{ x: 6 }}
-                  className="flex items-center justify-between gap-6"
+                  className="grid grid-cols-[minmax(0,_1fr)_auto] items-center gap-6"
                 >
                   <a href={producer.anchor} className="font-medium hover:text-white">
                     {producer.name}
                   </a>
-                  <span className="text-xs uppercase tracking-[0.25em] text-white/40">
+                  <span className="text-xs uppercase tracking-[0.25em] text-white/40 text-right whitespace-nowrap">
                     {producer.region}
                   </span>
                 </motion.li>
@@ -99,17 +99,19 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 flex flex-wrap items-center justify-center gap-8 lg:justify-between"
+          className="mt-16 rounded-3xl border border-white/10 bg-white/8 p-6 backdrop-blur-xl"
         >
-          {PRODUCER_LOGOS.map(logo => (
-            <motion.div
-              key={logo.src}
-              whileHover={{ scale: 1.05, y: -4 }}
-              className="relative h-10 w-32 overflow-hidden grayscale hover:grayscale-0 transition"
-            >
-              <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
-            </motion.div>
-          ))}
+          <div className="flex flex-wrap items-center justify-center gap-6 lg:justify-between">
+            {PRODUCER_LOGOS.map(logo => (
+              <motion.div
+                key={logo.src}
+                whileHover={{ scale: 1.05, y: -4 }}
+                className="relative flex h-14 w-36 items-center justify-center overflow-hidden rounded-2xl bg-white/90 p-3 shadow-[0_20px_45px_-30px_rgba(15,27,23,0.8)] transition hover:bg-white"
+              >
+                <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         <div className="mt-20 border-t border-white/10 pt-8 text-center text-xs uppercase tracking-[0.3em] text-white/40">

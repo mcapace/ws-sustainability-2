@@ -10,13 +10,26 @@ interface AdSlotProps extends HTMLAttributes<HTMLDivElement> {
   desktop: Dimension;
   tablet?: Dimension;
   mobile?: Dimension;
+  sticky?: boolean;
 }
 
 const dimensionLabel = ([width, height]: Dimension) => `${width}×${height}`;
 
-export function AdSlot({ slotId, label, desktop, tablet, mobile, className = '', ...rest }: AdSlotProps) {
+export function AdSlot({
+  slotId,
+  label,
+  desktop,
+  tablet,
+  mobile,
+  className = '',
+  sticky = false,
+  ...rest
+}: AdSlotProps) {
   return (
-    <div className={`flex w-full justify-center ${className}`} {...rest}>
+    <div
+      className={`flex w-full justify-center ${sticky ? 'sticky top-0 z-30' : ''} ${className}`.trim()}
+      {...rest}
+    >
       <div
         id={slotId}
         data-slot={slotId}
