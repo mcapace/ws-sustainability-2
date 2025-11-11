@@ -97,27 +97,6 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
               <p className="text-base italic text-[#6F8277]">{location.signature}</p>
             )}
 
-            {location.website && (
-              <div className="flex flex-wrap gap-4 pt-2">
-                <MagneticHover>
-                  <a
-                    href={location.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full bg-[#D86C3B] px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-[0_16px_40px_-24px_rgba(216,108,59,0.6)] transition hover:bg-[#E27D4E]"
-                    onClick={() =>
-                      trackInteraction('winery_cta_click', {
-                        cta: 'visit_website',
-                        locationId: location.id,
-                      })
-                    }
-                  >
-                    Visit winery
-                  </a>
-                </MagneticHover>
-              </div>
-            )}
-
             {location.features && location.features.length > 0 && (
               <div className="rounded-3xl border border-[#E4E8E0] bg-white/85 p-6 backdrop-blur-xl shadow-[0_24px_70px_-40px_rgba(31,77,59,0.35)]">
                 <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
@@ -140,6 +119,27 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
                     {paragraph}
                   </p>
                 ))}
+              </div>
+            )}
+
+            {location.website && (
+              <div className="mt-8 flex flex-wrap gap-4">
+                <MagneticHover>
+                  <a
+                    href={location.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-[#D86C3B] px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-[0_16px_40px_-24px_rgba(216,108,59,0.6)] transition hover:bg-[#E27D4E]"
+                    onClick={() =>
+                      trackInteraction('winery_cta_click', {
+                        cta: 'visit_website',
+                        locationId: location.id,
+                      })
+                    }
+                  >
+                    Visit winery
+                  </a>
+                </MagneticHover>
               </div>
             )}
           </motion.div>

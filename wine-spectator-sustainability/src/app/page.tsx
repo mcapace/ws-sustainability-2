@@ -10,7 +10,7 @@ import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { Footer } from '@/components/ui/Footer';
 import { ErrorBoundary, VenueErrorBoundary } from '@/components/ui/ErrorBoundary';
 import dynamic from 'next/dynamic';
-import { AccessibilityToolbar, SkipToMainContent, KeyboardNavigation, HighContrastStyles } from '@/components/ui/AccessibilityFeatures';
+import { SkipToMainContent } from '@/components/ui/AccessibilityFeatures';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MobileProvider } from '@/components/providers/MobileProvider';
@@ -22,14 +22,6 @@ import { useInteractionAnalytics } from '@/components/providers/AnalyticsProvide
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
-
-const LuxuryCursor = dynamic(
-  () =>
-    import('@/components/ui/LuxuryCursor').then(module => ({
-      default: module.LuxuryCursor,
-    })),
-  { ssr: false, loading: () => null },
-);
 
 const ResponsiveTest = dynamic(
   () =>
@@ -56,7 +48,6 @@ const ContentValidator = dynamic(
 );
 
 const ENABLE_TOOLING = process.env.NEXT_PUBLIC_ENABLE_TOOLING === 'true';
-const ENABLE_LUXURY_CURSOR = process.env.NEXT_PUBLIC_ENABLE_LUXURY_CURSOR !== 'false';
 
 export default function Home() {
   const { trackInteraction } = useInteractionAnalytics();
@@ -161,36 +152,32 @@ export default function Home() {
         <div className="min-h-screen bg-transparent">
           <SkipToMainContent />
           <Navigation />
-          
+
           <main id="main-content">
             <ErrorBoundary>
               <HeroSection />
             </ErrorBoundary>
-            
+
             <VenueErrorBoundary>
               <VenueShowcase />
             </VenueErrorBoundary>
-            
+
             <ErrorBoundary>
               <VenueDetails />
             </ErrorBoundary>
-            
+
             <ErrorBoundary>
               <BrandComparison />
             </ErrorBoundary>
           </main>
-          
+
           <Footer />
-          
+
           {/* Scroll Progress and Back to Top */}
           <ScrollProgress />
-          
-          {/* Luxury features */}
-          {ENABLE_LUXURY_CURSOR && <LuxuryCursor />}
-          <AccessibilityToolbar />
-          <KeyboardNavigation />
-          <HighContrastStyles />
-          
+
+          <MobileNavigation items={mobileNavigationItems} quickActions={mobileQuickActions} />
+
           {/* Development tools */}
           {ENABLE_TOOLING && (
             <>
@@ -199,8 +186,6 @@ export default function Home() {
               <ContentValidator />
             </>
           )}
-
-          <MobileNavigation items={mobileNavigationItems} quickActions={mobileQuickActions} />
         </div>
       </ErrorBoundary>
     </MobileProvider>
