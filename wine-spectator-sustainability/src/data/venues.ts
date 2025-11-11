@@ -15,6 +15,7 @@ export interface VenueLocation {
   name: string;
   shortName: string;
   tagline: string;
+  cardIntro: string;
   intro?: string;
   description: string;
   website: string;
@@ -32,6 +33,13 @@ export interface VenueLocation {
   bottleDimensions?: {
     width: number;
     height: number;
+  };
+  socials?: {
+    website: string;
+    instagram?: string;
+    facebook?: string;
+    x?: string;
+    youtube?: string;
   };
   features?: string[];
   signature?: string;
@@ -89,6 +97,8 @@ export const venueData: { brands: Brand[] } = {
           name: 'Lallier Champagne',
           shortName: 'Lallier',
           tagline: 'Champagne heritage rooted in biodiversity',
+          cardIntro:
+            'Since its founding, Lallier Champagne has embraced a deep respect for terroir and nature. Certified HVE and VDC, Lallier nurtures biodiversity through its partnership with local company Terr’Api—welcoming back wild bees, trees, and flowering plants around its Oger winemaking facility. Using no herbicides or pesticides, Lallier lets nature inspire its ongoing pursuit of excellence.',
           intro:
             'A Grand Cru Maison crafting expressive Champagnes while rewilding its Oger estate through Terr’Api-led biodiversity projects.',
           description:
@@ -105,6 +115,11 @@ export const venueData: { brands: Brand[] } = {
             bottle: '/images/bottles/lallier-reflexion.png',
           },
           bottleDimensions: { width: 248, height: 800 },
+          socials: {
+            website: 'https://www.champagne-lallier.com',
+            instagram: 'https://www.instagram.com/champagne_lallier/',
+            facebook: 'https://www.facebook.com/pages/Champagne-Lallier/129079373797349',
+          },
           signature:
             'Certified HVE and VDC Maison reintroducing biodiversity around its Oger winemaking facility in partnership with Terr’Api.',
           features: [
@@ -119,6 +134,8 @@ export const venueData: { brands: Brand[] } = {
           name: 'Firetree Vineyards',
           shortName: 'Firetree',
           tagline: 'Regenerative Los Carneros Chardonnay in motion',
+          cardIntro:
+            'At Firetree Vineyards, sustainability is a living promise. The Jimenez family farms their Los Carneros Chardonnay organically and regeneratively, with goats, Babydoll sheep, and native wildflowers enriching the soil. Under the guidance of winemaker Julien Fayard, Firetree cultivates a future rooted in stewardship, excellence, and generational goals.',
           intro:
             'Family-owned Los Carneros estate farming regeneratively with goats, sheep, and native pollinator plantings.',
           description:
@@ -135,6 +152,10 @@ export const venueData: { brands: Brand[] } = {
             bottle: '/images/bottles/firetree-bunny-hills.png',
           },
           bottleDimensions: { width: 600, height: 753 },
+          socials: {
+            website: 'https://firetreevineyards.com',
+            instagram: 'https://www.instagram.com/firetreevineyards/',
+          },
           signature:
             'Family-owned estate working with winemaker Julien Fayard to steward Napa Green- and Fish Friendly Farming-certified vineyards through organic, regenerative practices.',
           features: [
@@ -149,6 +170,8 @@ export const venueData: { brands: Brand[] } = {
           name: 'Gloria Ferrer Winery',
           shortName: 'Gloria Ferrer',
           tagline: 'Organic sparkling excellence from Carneros',
+          cardIntro:
+            'In the rolling hills of Carneros, Gloria Ferrer has long been synonymous with exceptional sparkling wine. Today, the estate stands at a new milestone: with both vineyards and winery fully certified organic, the commitment to crafting wines with integrity has never been stronger. Discover where intentional farming and winemaking deliver sparkling wines of balance and enduring quality.',
           intro:
             'Carneros’ first sparkling house, now fully certified organic, crafting méthode traditionnelle wines with intentional farming.',
           description:
@@ -165,6 +188,11 @@ export const venueData: { brands: Brand[] } = {
             bottle: '/images/bottles/gloria-ferrer-brut.png',
           },
           bottleDimensions: { width: 296, height: 800 },
+          socials: {
+            website: 'https://www.gloriaferrer.com',
+            instagram: 'https://www.instagram.com/gloriaferrer/',
+            facebook: 'https://www.facebook.com/GloriaFerrerWinery/',
+          },
           signature:
             'Over 40 years of méthode traditionnelle craftsmanship now backed by dual organic and CSWA certifications.',
           features: [
@@ -179,6 +207,8 @@ export const venueData: { brands: Brand[] } = {
           name: 'Piccini 1882',
           shortName: 'Piccini',
           tagline: 'Tuscan heritage with organic innovation',
+          cardIntro:
+            'For over 140 years, the Piccini family has transformed the landscape of Chianti winemaking, rooted in the heart of Tuscany. Today, Piccini stands as a symbol of innovation and heritage—bridging the timeless allure of Chianti with a fresh perspective for modern wine lovers. But their legacy goes beyond tradition and innovation: Piccini is leading the way in sustainable and organic viticulture.',
           intro:
             'Five generations of Chianti innovation, blending organic viticulture, renewable energy, and a modern take on Tuscan classics.',
           description:
@@ -195,6 +225,9 @@ export const venueData: { brands: Brand[] } = {
             bottle: '/images/bottles/piccini-orvieto.png',
           },
           bottleDimensions: { width: 199, height: 800 },
+          socials: {
+            website: 'https://www.piccini1882.it/en',
+          },
           signature:
             'Five generations evolving from a 7-hectare vineyard into a global ambassador for eco-forward Chianti.',
           features: [
@@ -209,6 +242,8 @@ export const venueData: { brands: Brand[] } = {
           name: 'San Simeon Wines',
           shortName: 'San Simeon',
           tagline: 'Central Coast estate-grown stewardship',
+          cardIntro:
+            'San Simeon Wines are crafted from 100% estate-grown fruit from certified sustainable vineyards in both Monterey and Paso Robles. Made with generations of expertise and passion, each bottle reflects the Riboli family’s unwavering commitment to quality and environmental stewardship—sustainability from ground to glass.',
           intro:
             'Fourth-generation Riboli family wines from CSWA-certified Monterey and Paso Robles estates, soon opening a Willow Creek tasting room.',
           description:
@@ -225,6 +260,11 @@ export const venueData: { brands: Brand[] } = {
             bottle: '/images/bottles/san-simeon-cab.png',
           },
           bottleDimensions: { width: 215, height: 800 },
+          socials: {
+            website: 'https://www.sansimeonwines.com',
+            instagram: 'https://www.instagram.com/sansimeonwines/',
+            facebook: 'https://www.facebook.com/SanSimeonWines',
+          },
           signature:
             'Fourth-generation family ownership marrying coastal elegance with innovation across CSWA-certified vineyards.',
           features: [
@@ -239,6 +279,8 @@ export const venueData: { brands: Brand[] } = {
           name: 'WillaKenzie Estate',
           shortName: 'WillaKenzie',
           tagline: 'LIVE-certified Willamette Valley stewardship',
+          cardIntro:
+            'WillaKenzie Estate, founded in 1992 in the Yamhill-Carlton AVA, is named for the sedimentary soil on which our vines are planted. As the first LIVE-certified winery in the northwest, we have remained committed to sustainable practices since breaking ground. Our estate is a study in diversity and complexity, offering a collection of distinctive single-vineyard Pinot Noirs.',
           intro:
             'LIVE Certified #001 estate celebrating Willamette Valley diversity with salmon-safe farming and terroir-driven Pinot Noirs.',
           description:
@@ -255,6 +297,11 @@ export const venueData: { brands: Brand[] } = {
             bottle: '/images/bottles/willakenzie-estate-pinot.png',
           },
           bottleDimensions: { width: 235, height: 800 },
+          socials: {
+            website: 'https://www.willakenzie.com',
+            instagram: 'https://www.instagram.com/willakenzie/',
+            facebook: 'https://www.facebook.com/willakenzie',
+          },
           signature:
             'Oregon’s first LIVE-certified winery with Salmon-Safe stewardship across a 420-acre mosaic of microclimates.',
           features: [

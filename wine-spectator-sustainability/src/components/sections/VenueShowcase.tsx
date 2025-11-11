@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Leaf, Sparkles } from 'lucide-react';
+import { Leaf, Globe, Instagram, Facebook, Twitter, Youtube } from 'lucide-react';
 import { venueData } from '@/data/venues';
 import { gsap } from 'gsap';
 import { useGsapTimeline } from '@/lib/animations';
@@ -11,6 +11,14 @@ import { MagneticHover } from '@/components/animations/UtilityAnimations';
 import { useInteractionAnalytics } from '@/components/providers/AnalyticsProvider';
 
 const LOCATIONS = venueData.brands.flatMap(brand => brand.locations);
+
+const SOCIAL_ICON_MAP = {
+  website: Globe,
+  instagram: Instagram,
+  facebook: Facebook,
+  x: Twitter,
+  youtube: Youtube,
+} as const;
 
 export function VenueShowcase() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -138,18 +146,29 @@ export function VenueShowcase() {
               </p>
 
               <p className="mt-6 flex-1 text-[#365A47]">
-                {location.intro ?? location.description}
+                {location.cardIntro}
               </p>
 
-              {location.features && location.features.length > 0 && (
-                <ul className="mt-6 space-y-3 text-sm text-[#1F4D3B]">
-                  {location.features.slice(0, 3).map(feature => (
-                    <li key={feature} className="flex items-start gap-2">
-                      <Sparkles className="mt-1 h-4 w-4 text-[#E3C77D]" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+              {location.socials && (
+                <div className="mt-6 flex flex-wrap items-center gap-3">
+                  {Object.entries(location.socials).map(([key, href]) => {
+                    if (!href) return null;
+                    const Icon = SOCIAL_ICON_MAP[key as keyof typeof SOCIAL_ICON_MAP];
+                    if (!Icon) return null;
+                    return (
+                      <a
+                        key={key}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 rounded-full border border-[#1F4D3B]/30 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#1F4D3B] transition hover:border-[#1F4D3B] hover:text-[#D86C3B]"
+                      >
+                        <Icon className="h-4 w-4" />
+                        <span>{key === 'x' ? 'X' : key.charAt(0).toUpperCase() + key.slice(1)}</span>
+                      </a>
+                    );
+                  })}
+                </div>
               )}
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
