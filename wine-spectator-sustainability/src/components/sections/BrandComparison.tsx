@@ -50,12 +50,22 @@ export function BrandComparison() {
       },
     });
 
-    tl.from(headerRef.current, { y: 32, opacity: 0 })
-      .from(
-        cardsRef.current,
-        { y: 48, opacity: 0, stagger: 0.15, rotateY: -6 },
-        '-=0.3',
-      );
+    tl.fromTo(
+      headerRef.current,
+      { y: 32, opacity: 0 },
+      { y: 0, opacity: 1, immediateRender: false },
+    ).fromTo(
+      cardsRef.current,
+      { y: 48, opacity: 0, rotateY: -6 },
+      {
+        y: 0,
+        opacity: 1,
+        rotateY: 0,
+        stagger: 0.15,
+        immediateRender: false,
+      },
+      '-=0.3',
+    );
 
     return tl;
   }, { deps: [] });

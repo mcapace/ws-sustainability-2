@@ -4,13 +4,11 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Leaf, Globe, Instagram, Facebook, Twitter, Youtube } from 'lucide-react';
-import { venueData } from '@/data/venues';
+import type { VenueLocation } from '@/data/venues';
 import { gsap } from 'gsap';
 import { useGsapTimeline } from '@/lib/animations';
 import { MagneticHover } from '@/components/animations/UtilityAnimations';
 import { useInteractionAnalytics } from '@/components/providers/AnalyticsProvider';
-
-const LOCATIONS = venueData.brands.flatMap(brand => brand.locations);
 
 const SOCIAL_ICON_MAP = {
   website: Globe,
@@ -20,7 +18,11 @@ const SOCIAL_ICON_MAP = {
   youtube: Youtube,
 } as const;
 
-export function VenueShowcase() {
+interface VenueShowcaseProps {
+  locations: VenueLocation[];
+}
+
+export function VenueShowcase({ locations }: VenueShowcaseProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const { trackInteraction } = useInteractionAnalytics();
@@ -37,16 +39,20 @@ export function VenueShowcase() {
       },
     });
 
-    timeline.from(cardsRef.current, {
-      y: 48,
-      opacity: 0,
-      stagger: 0.12,
-      transformOrigin: '50% 100%',
-      rotateX: -6,
-    });
+    timeline.fromTo(
+      cardsRef.current,
+      { y: 48, opacity: 0, rotateX: -6 },
+      {
+        y: 0,
+        opacity: 1,
+        rotateX: 0,
+        stagger: 0.12,
+        immediateRender: false,
+      },
+    );
 
     return timeline;
-  }, { deps: [] });
+  }, { deps: [locations] });
 
   return (
     <section
@@ -89,7 +95,7 @@ export function VenueShowcase() {
         </div>
 
         <div className="relative mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {LOCATIONS.map((location, index) => {
+          {locations.map((location, index) => {
             const logoWidth = 200 * (location.logoScale ?? 1);
             return (
               <motion.article

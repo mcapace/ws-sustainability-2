@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Navigation } from '@/components/ui/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { VenueShowcase } from '@/components/sections/VenueShowcase';
@@ -17,6 +17,9 @@ import { MobileProvider } from '@/components/providers/MobileProvider';
 import { MobileNavigation } from '@/components/mobile/MobileNavigation';
 import type { MobileNavigationItem, QuickAction } from '@/types/mobile';
 import { useInteractionAnalytics } from '@/components/providers/AnalyticsProvider';
+import { venueData } from '@/data/venues';
+import { shuffleArray } from '@/lib/shuffle';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 // Register GSAP ScrollTrigger
 if (typeof window !== 'undefined') {
@@ -51,6 +54,10 @@ const ENABLE_TOOLING = process.env.NEXT_PUBLIC_ENABLE_TOOLING === 'true';
 
 export default function Home() {
   const { trackInteraction } = useInteractionAnalytics();
+  const shuffledLocations = useMemo(
+    () => shuffleArray(venueData.brands.flatMap(brand => brand.locations)),
+    [],
+  );
   const scrollToSelector = useCallback((selector: string) => {
     if (typeof document === 'undefined') return;
     const target = document.querySelector(selector);
@@ -152,6 +159,14 @@ export default function Home() {
         <div className="min-h-screen bg-transparent">
           <SkipToMainContent />
           <Navigation />
+          <AdSlot
+            slotId="gam-leaderboard-top"
+            label="Top Leaderboard"
+            desktop={[728, 90]}
+            tablet={[728, 90]}
+            mobile={[300, 50]}
+            className="mt-6"
+          />
 
           <main id="main-content">
             <ErrorBoundary>
@@ -159,12 +174,30 @@ export default function Home() {
             </ErrorBoundary>
 
             <VenueErrorBoundary>
-              <VenueShowcase />
+              <VenueShowcase locations={shuffledLocations} />
             </VenueErrorBoundary>
 
+            <AdSlot
+              slotId="gam-mid-rectangle"
+              label="Mid-Page Rectangle"
+              desktop={[300, 600]}
+              tablet={[300, 250]}
+              mobile={[300, 250]}
+              className="mt-16"
+            />
+
             <ErrorBoundary>
-              <VenueDetails />
+              <VenueDetails locations={shuffledLocations} />
             </ErrorBoundary>
+
+            <AdSlot
+              slotId="gam-bottom-banner"
+              label="Bottom Banner"
+              desktop={[728, 90]}
+              tablet={[468, 60]}
+              mobile={[300, 50]}
+              className="mt-16"
+            />
 
             <ErrorBoundary>
               <BrandComparison />

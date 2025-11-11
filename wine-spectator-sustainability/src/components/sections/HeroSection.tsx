@@ -41,18 +41,18 @@ export function HeroSection() {
       .fromTo(
         sectionRef.current,
         { opacity: 0 },
-        { opacity: 1, duration: 0.8 },
+        { opacity: 1, duration: 0.8, immediateRender: false },
       )
       .fromTo(
         highlightRef.current,
         { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 1 },
+        { opacity: 1, y: 0, duration: 1, immediateRender: false },
         0.2,
       )
       .fromTo(
         ctaRef.current,
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.6 },
+        { opacity: 1, y: 0, duration: 0.6, immediateRender: false },
         0.6,
       );
 

@@ -3,14 +3,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { venueData, VenueLocation } from '@/data/venues';
+import type { VenueLocation } from '@/data/venues';
 import { Sparkles } from 'lucide-react';
 import { gsap } from 'gsap';
 import { useGsapTimeline } from '@/lib/animations';
 import { MagneticHover } from '@/components/animations/UtilityAnimations';
 import { useInteractionAnalytics } from '@/components/providers/AnalyticsProvider';
-
-const LOCATIONS = venueData.brands.flatMap(brand => brand.locations);
 
 export function WineryDetail({ location, index }: { location: VenueLocation; index: number }) {
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
@@ -42,12 +40,16 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
       },
     });
 
-    tl.from(contentRef.current, { y: 48, opacity: 0 })
-      .from(
-        galleryRef.current,
-        { y: 36, opacity: 0, scale: 0.96 },
-        '-=0.5',
-      );
+    tl.fromTo(
+      contentRef.current,
+      { y: 48, opacity: 0 },
+      { y: 0, opacity: 1, immediateRender: false },
+    ).fromTo(
+      galleryRef.current,
+      { y: 36, opacity: 0, scale: 0.96 },
+      { y: 0, opacity: 1, scale: 1, immediateRender: false },
+      '-=0.5',
+    );
 
     return tl;
   }, { deps: [location.id] });
@@ -196,10 +198,10 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
   );
 }
 
-export function VenueDetails() {
+export function VenueDetails({ locations }: { locations: VenueLocation[] }) {
   return (
     <>
-      {LOCATIONS.map((location, index) => (
+      {locations.map((location, index) => (
         <WineryDetail key={location.id} location={location} index={index} />
       ))}
     </>
