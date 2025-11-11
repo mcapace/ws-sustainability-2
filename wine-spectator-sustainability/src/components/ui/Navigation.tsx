@@ -6,12 +6,12 @@ import Image from 'next/image';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 const PRODUCERS = [
-  { label: 'Champagne Lallier', href: '#lallier' },
+  { label: 'Lallier Champagne', href: '#lallier' },
   { label: 'Firetree Vineyards', href: '#firetree' },
   { label: 'Gloria Ferrer', href: '#gloria-ferrer' },
+  { label: 'Piccini 1882', href: '#piccini' },
   { label: 'San Simeon Wines', href: '#san-simeon' },
   { label: 'WillaKenzie Estate', href: '#willakenzie' },
-  { label: 'Piccini 1882', href: '#piccini' },
 ];
 
 const PRIMARY_LINKS = [

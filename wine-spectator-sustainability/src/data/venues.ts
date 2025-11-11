@@ -86,7 +86,7 @@ export const venueData: { brands: Brand[] } = {
       locations: [
         {
           id: 'lallier',
-          name: 'Champagne Lallier',
+          name: 'Lallier Champagne',
           shortName: 'Lallier',
           tagline: 'Champagne heritage rooted in biodiversity',
           intro:

@@ -28,7 +28,7 @@ const PILLARS = [
     title: 'Community & Equity',
     description:
       'Indigenous fire councils, inclusive fellowships, and circular economies that reinvest in people and place.',
-    producers: 'Champagne Lallier · WillaKenzie · Firetree',
+    producers: 'Lallier Champagne · WillaKenzie · Firetree',
   },
 ];
 

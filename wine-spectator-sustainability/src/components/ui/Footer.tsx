@@ -4,21 +4,21 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const PRODUCERS = [
-  { name: 'Champagne Lallier', region: 'Aÿ, France', anchor: '#lallier' },
-  { name: 'Firetree Vineyards', region: 'Los Carneros, CA', anchor: '#firetree' },
-  { name: 'Gloria Ferrer', region: 'Carneros, CA', anchor: '#gloria-ferrer' },
-  { name: 'San Simeon Wines', region: 'Central Coast, CA', anchor: '#san-simeon' },
-  { name: 'WillaKenzie Estate', region: 'Willamette Valley, OR', anchor: '#willakenzie' },
+  { name: 'Firetree Vineyards', region: 'Napa, California', anchor: '#firetree' },
+  { name: 'Gloria Ferrer', region: 'Sonoma, California', anchor: '#gloria-ferrer' },
+  { name: 'Lallier Champagne', region: 'Champagne, France', anchor: '#lallier' },
   { name: 'Piccini 1882', region: 'Tuscany, Italy', anchor: '#piccini' },
+  { name: 'San Simeon Wines', region: 'Monterey & Paso Robles, California', anchor: '#san-simeon' },
+  { name: 'WillaKenzie Estate', region: 'Yamhill, Oregon', anchor: '#willakenzie' },
 ];
 
 const PRODUCER_LOGOS = [
-  { src: '/images/logos/lallier.jpg', alt: 'Champagne Lallier logo' },
   { src: '/images/logos/firetree.png', alt: 'Firetree Vineyards logo' },
   { src: '/images/logos/gloria-ferrer.png', alt: 'Gloria Ferrer logo' },
+  { src: '/images/logos/lallier.png', alt: 'Lallier Champagne logo' },
+  { src: '/images/logos/piccini.png', alt: 'Piccini 1882 logo' },
   { src: '/images/logos/san-simeon.png', alt: 'San Simeon Wines logo' },
   { src: '/images/logos/willakenzie.png', alt: 'WillaKenzie Estate logo' },
-  { src: '/images/logos/piccini.png', alt: 'Piccini 1882 logo' },
 ];
 
 export function Footer() {

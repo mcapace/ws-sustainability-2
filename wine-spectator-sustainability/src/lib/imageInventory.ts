@@ -117,10 +117,10 @@ export const imageInventory: ImageAsset[] = [
     location: 'gloria-ferrer',
   },
 
-  // Champagne Lallier
+  // Lallier Champagne
   {
-    path: '/images/logos/lallier.jpg',
-    filename: 'lallier.jpg',
+    path: '/images/logos/lallier.png',
+    filename: 'lallier.png',
     category: 'logo',
     quality: 'high',
     aspectRatio: 'original',
