@@ -38,6 +38,7 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
       scrollTrigger: {
         trigger: sectionRef.current,
         start: 'top 75%',
+        once: true,
       },
     });
 
