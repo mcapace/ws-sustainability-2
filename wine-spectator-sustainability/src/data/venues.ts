@@ -287,7 +287,7 @@ export const venueData: { brands: Brand[] } = {
             ],
             bottle: '/images/bottles/san-simeon-bottle.png',
           },
-          bottleDimensions: { width: 215, height: 800 },
+          bottleDimensions: { width: 214, height: 800 },
           socials: {
             website: 'https://www.sansimeonwines.com',
             instagram: 'https://www.instagram.com/sansimeonwines/',
