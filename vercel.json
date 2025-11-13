@@ -1,7 +1,7 @@
 {
   "buildCommand": "cd wine-spectator-sustainability && npm run build",
   "outputDirectory": "wine-spectator-sustainability/.next",
-  "installCommand": "cd wine-spectator-sustainability && npm install --legacy-peer-deps",
+  "installCommand": "cd wine-spectator-sustainability && npm install --legacy-peer-deps --ignore-scripts",
   "devCommand": "cd wine-spectator-sustainability && npm run dev",
   "framework": "nextjs"
 }
