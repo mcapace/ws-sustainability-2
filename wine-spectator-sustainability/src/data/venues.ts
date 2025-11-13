@@ -110,6 +110,7 @@ export const venueData: { brands: Brand[] } = {
           images: {
             hero: '/images/wineries/lallier/hero.jpg',
             gallery: [
+              '/images/wineries/lallier/hero.jpg',
               '/images/wineries/lallier/gallery-1.jpg',
               '/images/wineries/lallier/gallery-2.jpg',
               '/images/wineries/lallier/gallery-3.jpg',
@@ -152,6 +153,7 @@ export const venueData: { brands: Brand[] } = {
           images: {
             hero: '/images/wineries/firetree/hero.jpg',
             gallery: [
+              '/images/wineries/firetree/hero.jpg',
               '/images/wineries/firetree/gallery-1.jpg',
               '/images/wineries/firetree/gallery-2.jpg',
               '/images/wineries/firetree/gallery-3.jpg',
