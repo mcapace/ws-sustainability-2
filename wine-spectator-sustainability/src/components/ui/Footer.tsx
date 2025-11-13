@@ -99,14 +99,14 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 rounded-3xl border border-white/15 bg-white/15 p-6 backdrop-blur-2xl"
+          className="mt-16 rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-2xl"
         >
-          <div className="flex flex-wrap items-center justify-center gap-6 lg:justify-between">
+          <div className="flex flex-nowrap items-center justify-center gap-4 overflow-x-auto lg:justify-between lg:overflow-visible">
             {PRODUCER_LOGOS.map(logo => (
               <motion.div
                 key={logo.src}
                 whileHover={{ scale: 1.05, y: -4 }}
-                className="relative flex h-16 w-40 items-center justify-center overflow-hidden rounded-2xl bg-white p-3 shadow-[0_25px_55px_-35px_rgba(15,27,23,0.85)] transition"
+                className="relative flex h-16 w-40 flex-shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white/75 p-3 shadow-[0_25px_55px_-35px_rgba(15,27,23,0.85)] transition"
               >
                 <Image src={logo.src} alt={logo.alt} fill className="object-contain" sizes="160px" />
               </motion.div>
