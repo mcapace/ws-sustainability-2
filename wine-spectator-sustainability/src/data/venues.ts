@@ -168,10 +168,10 @@ export const venueData: { brands: Brand[] } = {
           signature:
             'Family-owned estate working with winemaker Julien Fayard to steward Napa Green- and Fish Friendly Farming-certified vineyards through organic, regenerative practices.',
           features: [
-            'Napa Green and Fish Friendly Farming certified estate committed to soil, water, and vineyard biodiversity.',
-            'Permanent herd of goats and Babydoll sheep provides natural weed management and soil enrichment.',
-            'Participant in California\'s Healthy Soils Program and native pollinator project with the Napa County Resource Conservation District.',
-            'Family-owned estate crafting Chardonnay under winemaker Julien Fayard with a legacy mindset.',
+            'Napa Green & Fish Friendly Farming certified estate in Los Carneros',
+            'Practicing organic and regenerative viticulture, with permanent goat and sheep herd',
+            'Participant in California\'s Healthy Soils Program and native pollinator project',
+            'Family-owned estate crafting Chardonnay under winemaker Julien Fayard',
           ],
           article: [
             'When Ricardo and Dayva Jimenez purchased their Los Carneros property in April 2021, they were not just buying a vineyard—they were laying the foundation for a legacy. That year marked Firetree Vineyards\' first harvest, and from the outset, the family charted a path that fused fine Chardonnay production with an ambitious commitment to the land.',
@@ -212,10 +212,11 @@ export const venueData: { brands: Brand[] } = {
           signature:
             'Over 40 years of méthode traditionnelle craftsmanship now backed by dual organic and CSWA certifications.',
           features: [
-            'Carneros vineyards and winery fully certified organic by CCOF and certified sustainable by the CSWA.',
-            'Over 40 years of crafting méthode traditionnelle sparkling wines highlighting the precision and elegance of Carneros fruit.',
-            'Intentional farming practices—cover crops, biodiversity, and resource conservation—anchor a holistic stewardship philosophy.',
-            'Award-winning hospitality delivers tastings, vineyard views, and culinary pairings that bring the wines to life.',
+            'Both Gloria Ferrer\'s Carneros vineyards and winery are now fully certified organic by the CCOF and certified Sustainable by the CSWA, underscoring a deep commitment to our purity and stewardship.',
+            'Every sparkling and still wine is crafted with intention and purpose, which can be tasted in the purity of fruit, balance, and aging ability of the wines.',
+            'Over 40 years of crafting méthode traditionnelle sparkling wines showcase the precision and elegance of Carneros fruit.',
+            'Award-winning hospitality in the heart of Sonoma, with tastings, vineyard views, and culinary pairings that bring the wines to life.',
+            'A balance of classic techniques and modern sustainability practices, including regenerative farming and small-lot still wine exploration.',
           ],
           article: [
             'Gloria Ferrer: A Legacy of Intentional Winemaking in Carneros',
@@ -258,8 +259,9 @@ export const venueData: { brands: Brand[] } = {
           features: [
             'Five generations of Piccini family ownership growing from a 7-hectare vineyard in 1882 to a global exporter.',
             'Extensive organic viticulture practices help preserve biodiversity and reduce chemical use in Tuscany\'s vineyards.',
-            'Investments in renewable energy minimize the winery\'s carbon footprint and promote responsible production.',
+            'The winery invests in renewable energy initiatives to minimize its carbon footprint and promote responsible production.',
             'Piccini\'s commitment to sustainability sets a benchmark for eco-friendly winemaking in the region.',
+            'By prioritizing environmental stewardship, Piccini ensures the long-term health of the land for future generations.',
           ],
           article: [
             'For more than 140 years, the Piccini family has been a driving force in transforming the landscape of Chianti winemaking, deeply rooted in the heart of Tuscany. What began as a modest family venture has grown into a renowned name, synonymous with both tradition and forward-thinking innovation. Today, Piccini stands as a symbol of how heritage can be harmoniously blended with modernity, offering wine lovers a fresh perspective on the timeless allure of Chianti.',
@@ -299,10 +301,9 @@ export const venueData: { brands: Brand[] } = {
           signature:
             'Fourth-generation family ownership marrying coastal elegance with innovation across CSWA-certified vineyards.',
           features: [
-            'Family-owned and operated since 1917, with over 100 years of winemaking excellence.',
-            '100% estate-grown wines from certified sustainable (CSWA) vineyards in Monterey and Paso Robles.',
-            'New tasting room opening in early 2026 in Paso Robles\' Willow Creek District.',
-            'Celebrated for 90+ point wines year after year across an expressive coastal portfolio.',
+            'Family-owned and Operated since 1917, with over 100 years of winemaking excellence',
+            '100% estate-grown wines from certified sustainable (CSWA) vineyards in Monterey and Paso Robles',
+            'New tasting room opening in early 2026 in Paso Robles\' Willow Creek District',
           ],
           article: [
             'For those drawn to the coastal elegance of California wines, San Simeon Wines delivers a refined expression of place--one rooted in sustainability, family tradition, and a deep respect for the land.',
@@ -342,11 +343,11 @@ export const venueData: { brands: Brand[] } = {
           signature:
             'Oregon\'s first LIVE-certified winery with Salmon-Safe stewardship across a 420-acre mosaic of microclimates.',
           features: [
-            'A tapestry of terroir across benches, ridgelines, elevations, slopes, exposures, soils, and microclimates.',
-            'LIVE-Certified winery #001 with flowering cover crops supporting pollinators and wildlife.',
-            'Salmon-Safe practices reduce runoff, protect water quality, and enhance native biodiversity.',
-            'Texture, purity, finesse: every bottling showcases the estate\'s emphasis on vibrant, terroir-driven wines.',
-            'Immersive tastings and vineyard tours highlight sustainable farming in a breathtaking Willamette Valley setting.',
+            'A TAPESTRY OF TERRIOR: With its range of benches, ridgelines, elevations, slopes, exposures, soils, microclimates, and clonal plantings, WillaKenzie Estate is one of the most diverse estates in the Willamette Valley.',
+            'LIVE-CERTIFIED: As Oregon\'s LIVE-Certified winery #001, WillaKenzie Estate proudly upholds the organization\'s standards, including use of flowering and cover crops in the vineyard to serve as a food source for pollinators and wildlife.',
+            'SALMON-SAFE: WillaKenzie Estate is committed to reducing runoff, protecting water quality, and enhancing native biodiversity in our vineyard.',
+            'TEXTURE, PURITY, FINESSE: All WillaKenzie Estate wines are unified by a focus on texture and vibrancy — each bottle showcases the winegrowing team\'s emphasis on purity of fruit and finesse-driven wines that showcase the diversity of our continuous estate vineyard.',
+            'TASTING EXPERIENCES: WillaKenzie Estate offers a range of curated tasting experiences, including guided estate flights, intimate fireplace tastings, scenic al fresco pours, private group tastings, and immersive vineyard tours, that showcase its exceptional wines in a breathtaking setting, highlighting the estate\'s diverse terroir and commitment to sustainability.',
           ],
           article: [
             'Nestled in Oregon\'s Yamhill-Carlton AVA, WillaKenzie Estate stands among the Willamette Valley\'s most distinctive wineries. Founded in 1991 by Bernard Lacroute--who was inspired by the rolling hills reminiscent of his native Burgundy--the estate was built on a simple belief: great wines reflect a true sense of place. Its name honors the marine sedimentary WillaKenzie soil series, which imparts the depth, texture, and minerality that define its wines.',
