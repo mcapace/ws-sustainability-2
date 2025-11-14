@@ -159,7 +159,7 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
               </div>
             </div>
             {galleryImages.length > 1 && (
-              <div className="mt-4 grid grid-cols-3 gap-3">
+              <div className="mt-4 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-2">
                 {galleryImages.map((img, imgIndex) => (
                   <button
                     key={img}
@@ -170,14 +170,14 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
                         index: imgIndex,
                       });
                     }}
-                    className={`relative h-24 overflow-hidden rounded-xl border transition ${
+                    className={`relative h-16 sm:h-14 overflow-hidden rounded-lg border-2 transition ${
                       activeGalleryIndex === imgIndex
-                        ? 'border-[#1F4D3B]'
+                        ? 'border-[#1F4D3B] ring-2 ring-[#E3C77D]/50'
                         : 'border-transparent hover:border-[#E3C77D]'
                     }`}
                     aria-label={`View ${location.name} gallery image ${imgIndex + 1}`}
                   >
-                    <Image src={img} alt="" fill className="object-cover" sizes="160px" />
+                    <Image src={img} alt="" fill className="object-cover" sizes="80px" unoptimized={true} />
                   </button>
                 ))}
               </div>
