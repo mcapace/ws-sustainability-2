@@ -26,6 +26,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Wine Spectator' }],
   creator: 'Wine Spectator',
   publisher: 'Wine Spectator',
+  icons: {
+    icon: '/Sustainability/Logos/WS%20Favicon.jpg',
+    shortcut: '/Sustainability/Logos/WS%20Favicon.jpg',
+    apple: '/Sustainability/Logos/WS%20Favicon.jpg',
+  },
   robots: {
     index: true,
     follow: true,
@@ -44,7 +49,7 @@ export const metadata: Metadata = {
     siteName: 'Wine Spectator Sustainability',
     title: 'Wine Spectator Sustainability | Stewardship in Every Pour',
     description:
-      'Discover regenerative, coastal, and community-driven pillars behind Wine Spectator’s sustainability cohort.',
+      'Discover regenerative, coastal, and community-driven pillars behind Wine Spectator's sustainability cohort.',
     images: [
       {
         url: '/images/hero/sustainability-collection-hero.jpeg',
