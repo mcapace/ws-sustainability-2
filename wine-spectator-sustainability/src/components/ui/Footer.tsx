@@ -8,7 +8,7 @@ const PRODUCERS = [
   { name: 'Gloria Ferrer', region: 'Sonoma, California', anchor: '#gloria-ferrer' },
   { name: 'Lallier Champagne', region: 'Champagne, France', anchor: '#lallier' },
   { name: 'Piccini 1882', region: 'Tuscany, Italy', anchor: '#piccini' },
-  { name: 'San Simeon Wines', region: 'Monterey & Paso Robles, California', anchor: '#san-simeon' },
+  { name: 'San Simeon Wines', region: 'Central Coast, California', anchor: '#san-simeon' },
   { name: 'WillaKenzie Estate', region: 'Yamhill, Oregon', anchor: '#willakenzie' },
 ];
 
@@ -80,12 +80,12 @@ export function Footer() {
                 <motion.li
                   key={producer.name}
                   whileHover={{ x: 6 }}
-                  className="grid grid-cols-[minmax(0,_1fr)_auto] items-center gap-6"
+                  className="flex items-center justify-between gap-6"
                 >
-                  <a href={producer.anchor} className="font-medium hover:text-white">
+                  <a href={producer.anchor} className="font-medium hover:text-white flex-shrink-0">
                     {producer.name}
                   </a>
-                  <span className="text-xs uppercase tracking-[0.25em] text-white/40 text-right whitespace-nowrap">
+                  <span className="text-xs uppercase tracking-[0.25em] text-white/40 whitespace-nowrap flex-shrink-0">
                     {producer.region}
                   </span>
                 </motion.li>
