@@ -3,6 +3,7 @@
   "outputDirectory": "wine-spectator-sustainability/.next",
   "framework": "nextjs",
   "installCommand": "cd wine-spectator-sustainability && npm install --legacy-peer-deps",
+  "public": "wine-spectator-sustainability/public",
   "devCommand": "cd wine-spectator-sustainability && npm run dev",
   "regions": ["iad1"],
   "functions": {
