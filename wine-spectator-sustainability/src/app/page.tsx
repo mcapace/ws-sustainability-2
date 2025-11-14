@@ -85,15 +85,6 @@ export default function Home() {
       },
     },
     {
-      id: 'impact',
-      label: 'Impact',
-      icon: '📈',
-      action: () => {
-        scrollToSelector('#impact');
-        trackInteraction('mobile_nav_click', { target: 'impact' });
-      },
-    },
-    {
       id: 'footer',
       label: 'Contact',
       icon: '✉️',
