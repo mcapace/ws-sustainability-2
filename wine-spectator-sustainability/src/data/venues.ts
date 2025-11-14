@@ -100,9 +100,9 @@ export const venueData: { brands: Brand[] } = {
           shortName: 'Lallier',
           tagline: 'Champagne heritage rooted in biodiversity',
           cardIntro:
-            'Since its founding, Lallier Champagne has embraced a deep respect for terroir and nature. Certified HVE and VDC, Lallier nurtures biodiversity through its partnership with local company Terr’Api—welcoming back wild bees, trees, and flowering plants around its Oger winemaking facility. Using no herbicides or pesticides, Lallier lets nature inspire its ongoing pursuit of excellence.',
+            'Since its founding, Lallier Champagne has embraced a deep respect for terroir and nature. Certified HVE and VDC, Lallier nurtures biodiversity through its partnership with local company Terr\'Api—welcoming back wild bees, trees, and flowering plants around its Oger winemaking facility. Using no herbicides or pesticides, Lallier lets nature inspire its ongoing pursuit of excellence.',
           intro:
-            'A Grand Cru Maison crafting expressive Champagnes while rewilding its Oger estate through Terr’Api-led biodiversity projects.',
+            'A Grand Cru Maison crafting expressive Champagnes while rewilding its Oger estate through Terr\'Api-led biodiversity projects.',
           description:
             'Since its founding, Lallier Champagne has cherished its relationship with terroir and nature—crafting remarkable Champagnes guided by sincerity, curiosity, and respect for the environment.',
           website: 'https://www.champagne-lallier.com',
@@ -124,17 +124,17 @@ export const venueData: { brands: Brand[] } = {
             facebook: 'https://www.facebook.com/pages/Champagne-Lallier/129079373797349',
           },
           signature:
-            'Certified HVE and VDC Maison reintroducing biodiversity around its Oger winemaking facility in partnership with Terr’Api.',
+            'Certified HVE and VDC Maison reintroducing biodiversity around its Oger winemaking facility in partnership with Terr\'Api.',
           features: [
             'Founded in 1906 in the Grand Cru village of Aÿ, Lallier Champagne continues a century-old tradition rooted in craftsmanship, patience, and respect for terroir.',
             'Guided by curiosity and expertise, Lallier unites intuition with invention to create Champagnes that honor heritage while embracing modern expression.',
-            'With a touch of Aÿ Grand Cru in every blend, each cuvée reflects the freshness, purity, intensity, and depth that define Lallier’s signature style.',
-            'Committed to sustainable viticulture, Lallier nurtures biodiversity and Champagne terroir through HVE and VDC certifications and the Terr’Api partnership.',
+            'With a touch of Aÿ Grand Cru in every blend, each cuvée reflects the freshness, purity, intensity, and depth that define Lallier\'s signature style.',
+            'Committed to sustainable viticulture, Lallier nurtures biodiversity and Champagne terroir through HVE and VDC certifications and the Terr\'Api partnership.',
           ],
           article: [
             'Founded in 1906 in the Grand Cru village of Aÿ, Lallier Champagne embodies a century-old legacy rooted in craftsmanship, patience, and respect for terroir. From its beginnings, the Maison has cherished its deep connection to nature, crafting wines that honor both heritage and innovation. Guided by curiosity and expertise, Lallier unites intuition with invention to create Champagnes that reflect the freshness, purity, intensity, and depth that define its signature style.',
-            'Lallier's cellars in Aÿ and its modern winemaking facility in Oger together capture the soul of Champagne's greatest terroirs. The House's commitment to sustainable viticulture extends far beyond certification -it's a philosophy woven into every stage of production. Certified HVE (High Environmental Value) and VDC (Viticulture Durable en Champagne), Lallier promotes biodiversity through a partnership with the local company Terr'Api, reintroducing wild bees, flowering plants, and trees around its Oger site. No herbicides or pesticides are used',
-            'Under the direction of Chef de Caves Dominique Demarville, Lallier continues to innovate while preserving traditional savoir-faire. Each cuvée, from the Réflexion Brut R.021 to the elegant Blanc de Blancs and vibrant Rosé, captures a sense of place and time - Champagne in its truest form. Every bottle expresses the Maison's enduring belief: that nature is the finest guide to excellence.',
+            'Lallier\'s cellars in Aÿ and its modern winemaking facility in Oger together capture the soul of Champagne\'s greatest terroirs. The House\'s commitment to sustainable viticulture extends far beyond certification -it\'s a philosophy woven into every stage of production. Certified HVE (High Environmental Value) and VDC (Viticulture Durable en Champagne), Lallier promotes biodiversity through a partnership with the local company Terr\'Api, reintroducing wild bees, flowering plants, and trees around its Oger site. No herbicides or pesticides are used',
+            'Under the direction of Chef de Caves Dominique Demarville, Lallier continues to innovate while preserving traditional savoir-faire. Each cuvée, from the Réflexion Brut R.021 to the elegant Blanc de Blancs and vibrant Rosé, captures a sense of place and time - Champagne in its truest form. Every bottle expresses the Maison\'s enduring belief: that nature is the finest guide to excellence.',
           ],
         },
         {
@@ -147,7 +147,7 @@ export const venueData: { brands: Brand[] } = {
           intro:
             'Family-owned Los Carneros estate farming regeneratively with goats, sheep, and native pollinator plantings.',
           description:
-            'Rooted in the Los Carneros foothills, Firetree Vineyards crafts expressive, sustainably grown Chardonnay guided by the Jimenez family’s vision for legacy, stewardship, and regenerative farming.',
+            'Rooted in the Los Carneros foothills, Firetree Vineyards crafts expressive, sustainably grown Chardonnay guided by the Jimenez family\'s vision for legacy, stewardship, and regenerative farming.',
           website: 'https://firetreevineyards.com',
           logo: '/images/logos/firetree.png',
           images: {
@@ -170,13 +170,13 @@ export const venueData: { brands: Brand[] } = {
           features: [
             'Napa Green and Fish Friendly Farming certified estate committed to soil, water, and vineyard biodiversity.',
             'Permanent herd of goats and Babydoll sheep provides natural weed management and soil enrichment.',
-            'Participant in California’s Healthy Soils Program and native pollinator project with the Napa County Resource Conservation District.',
+            'Participant in California\'s Healthy Soils Program and native pollinator project with the Napa County Resource Conservation District.',
             'Family-owned estate crafting Chardonnay under winemaker Julien Fayard with a legacy mindset.',
           ],
           article: [
-            'When Ricardo and Dayva Jimenez purchased their Los Carneros property in April 2021, they were not just buying a vineyard—they were laying the foundation for a legacy. That year marked Firetree Vineyards' first harvest, and from the outset, the family charted a path that fused fine Chardonnay production with an ambitious commitment to the land.',
+            'When Ricardo and Dayva Jimenez purchased their Los Carneros property in April 2021, they were not just buying a vineyard—they were laying the foundation for a legacy. That year marked Firetree Vineyards\' first harvest, and from the outset, the family charted a path that fused fine Chardonnay production with an ambitious commitment to the land.',
             'Working alongside vineyard manager Ben Leachman and winemaker Julien Fayard, the Jimenez family has embraced organic and regenerative farming as a cornerstone of their approach. Firetree is Napa Green and Fish Friendly Farming certified, affirming practices that safeguard soil health, water resources, and vineyard biodiversity. The integration of a permanent herd of goats and Babydoll sheep reflects this philosophy, offering natural weed management and soil enrichment in place of mechanized solutions.',
-            'Beyond certification, Firetree is investing in forward-looking initiatives. The estate participates in the California Department of Food & Agriculture's Healthy Soils Program, designed to increase carbon capture and soil resilience. In partnership with the Napa County Resource Conservation District, Firetree has also introduced a native pollinator cover crop—featuring species such as California Poppy, Yellow Lupine, and Baby Blue Eyes—that not only enhances vineyard ecology but underscores a long-term vision for a resilient agricultural landscape.',
+            'Beyond certification, Firetree is investing in forward-looking initiatives. The estate participates in the California Department of Food & Agriculture\'s Healthy Soils Program, designed to increase carbon capture and soil resilience. In partnership with the Napa County Resource Conservation District, Firetree has also introduced a native pollinator cover crop—featuring species such as California Poppy, Yellow Lupine, and Baby Blue Eyes—that not only enhances vineyard ecology but underscores a long-term vision for a resilient agricultural landscape.',
             'That generational outlook extends to the family itself. Their son, Ricky, is involved in sales and marketing, while their daughter, Sophya, begins her studies in plant sciences at UC Davis this fall, inspired by her experience working among the vines.',
             'From their estate bottlings—including the FIDEM Reserve and Bunny Hills Chardonnay—to the enduring silhouettes of the two trees that overlook their vineyard, Firetree is positioning itself as both steward and storyteller in Carneros. Sustainability, for the Jimenez family, is not a buzzword, but a foundation for the future.',
           ],
@@ -189,9 +189,9 @@ export const venueData: { brands: Brand[] } = {
           cardIntro:
             'In the rolling hills of Carneros, Gloria Ferrer has long been synonymous with exceptional sparkling wine. Today, the estate stands at a new milestone: with both vineyards and winery fully certified organic, the commitment to crafting wines with integrity has never been stronger. Discover where intentional farming and winemaking deliver sparkling wines of balance and enduring quality.',
           intro:
-            'Carneros’ first sparkling house, now fully certified organic, crafting méthode traditionnelle wines with intentional farming.',
+            'Carneros\' first sparkling house, now fully certified organic, crafting méthode traditionnelle wines with intentional farming.',
           description:
-            'Discover Gloria Ferrer’s certified-organic Carneros estate, where intentional farming and winemaking deliver sparkling wines of balance, integrity, and enduring quality.',
+            'Discover Gloria Ferrer\'s certified-organic Carneros estate, where intentional farming and winemaking deliver sparkling wines of balance, integrity, and enduring quality.',
           website: 'https://www.gloriaferrer.com',
           logo: '/images/logos/gloria-ferrer.png',
           images: {
@@ -236,7 +236,7 @@ export const venueData: { brands: Brand[] } = {
           intro:
             'Five generations of Chianti innovation, blending organic viticulture, renewable energy, and a modern take on Tuscan classics.',
           description:
-            'Piccini is one of Tuscany’s most established wine families, blending 140 years of heritage with a courageous commitment to innovation and sustainability.',
+            'Piccini is one of Tuscany\'s most established wine families, blending 140 years of heritage with a courageous commitment to innovation and sustainability.',
           website: 'https://www.piccini1882.it/en',
           logo: '/images/logos/piccini.png',
           logoScale: 0.9,
@@ -257,9 +257,9 @@ export const venueData: { brands: Brand[] } = {
             'Five generations evolving from a 7-hectare vineyard into a global ambassador for eco-forward Chianti.',
           features: [
             'Five generations of Piccini family ownership growing from a 7-hectare vineyard in 1882 to a global exporter.',
-            'Extensive organic viticulture practices help preserve biodiversity and reduce chemical use in Tuscany’s vineyards.',
-            'Investments in renewable energy minimize the winery’s carbon footprint and promote responsible production.',
-            'Piccini’s commitment to sustainability sets a benchmark for eco-friendly winemaking in the region.',
+            'Extensive organic viticulture practices help preserve biodiversity and reduce chemical use in Tuscany\'s vineyards.',
+            'Investments in renewable energy minimize the winery\'s carbon footprint and promote responsible production.',
+            'Piccini\'s commitment to sustainability sets a benchmark for eco-friendly winemaking in the region.',
           ],
           article: [
             'For more than 140 years, the Piccini family has been a driving force in transforming the landscape of Chianti winemaking, deeply rooted in the heart of Tuscany. What began as a modest family venture has grown into a renowned name, synonymous with both tradition and forward-thinking innovation. Today, Piccini stands as a symbol of how heritage can be harmoniously blended with modernity, offering wine lovers a fresh perspective on the timeless allure of Chianti.',
@@ -274,7 +274,7 @@ export const venueData: { brands: Brand[] } = {
           shortName: 'San Simeon',
           tagline: 'Central Coast estate-grown stewardship',
           cardIntro:
-            'San Simeon Wines are crafted from 100% estate-grown fruit from certified sustainable vineyards in both Monterey and Paso Robles. Made with generations of expertise and passion, each bottle reflects the Riboli family’s unwavering commitment to quality and environmental stewardship—sustainability from ground to glass.',
+            'San Simeon Wines are crafted from 100% estate-grown fruit from certified sustainable vineyards in both Monterey and Paso Robles. Made with generations of expertise and passion, each bottle reflects the Riboli family\'s unwavering commitment to quality and environmental stewardship—sustainability from ground to glass.',
           intro:
             'Fourth-generation Riboli family wines from CSWA-certified Monterey and Paso Robles estates, soon opening a Willow Creek tasting room.',
           description:
@@ -301,7 +301,7 @@ export const venueData: { brands: Brand[] } = {
           features: [
             'Family-owned and operated since 1917, with over 100 years of winemaking excellence.',
             '100% estate-grown wines from certified sustainable (CSWA) vineyards in Monterey and Paso Robles.',
-            'New tasting room opening in early 2026 in Paso Robles’ Willow Creek District.',
+            'New tasting room opening in early 2026 in Paso Robles\' Willow Creek District.',
             'Celebrated for 90+ point wines year after year across an expressive coastal portfolio.',
           ],
           article: [
@@ -321,7 +321,7 @@ export const venueData: { brands: Brand[] } = {
           intro:
             'LIVE Certified #001 estate celebrating Willamette Valley diversity with salmon-safe farming and terroir-driven Pinot Noirs.',
           description:
-            'Discover the many expressions of Oregon’s Willamette Valley at WillaKenzie Estate—where diverse soils, elevations, and craftsmanship create distinctive, terroir-driven wines.',
+            'Discover the many expressions of Oregon\'s Willamette Valley at WillaKenzie Estate—where diverse soils, elevations, and craftsmanship create distinctive, terroir-driven wines.',
           website: 'https://www.willakenzie.com',
           logo: '/images/logos/willakenzie.png',
           images: {
@@ -340,12 +340,12 @@ export const venueData: { brands: Brand[] } = {
             facebook: 'https://www.facebook.com/willakenzie',
           },
           signature:
-            'Oregon’s first LIVE-certified winery with Salmon-Safe stewardship across a 420-acre mosaic of microclimates.',
+            'Oregon\'s first LIVE-certified winery with Salmon-Safe stewardship across a 420-acre mosaic of microclimates.',
           features: [
             'A tapestry of terroir across benches, ridgelines, elevations, slopes, exposures, soils, and microclimates.',
             'LIVE-Certified winery #001 with flowering cover crops supporting pollinators and wildlife.',
             'Salmon-Safe practices reduce runoff, protect water quality, and enhance native biodiversity.',
-            'Texture, purity, finesse: every bottling showcases the estate’s emphasis on vibrant, terroir-driven wines.',
+            'Texture, purity, finesse: every bottling showcases the estate\'s emphasis on vibrant, terroir-driven wines.',
             'Immersive tastings and vineyard tours highlight sustainable farming in a breathtaking Willamette Valley setting.',
           ],
           article: [
