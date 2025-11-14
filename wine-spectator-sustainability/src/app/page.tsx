@@ -191,7 +191,7 @@ export default function Home() {
 
           </main>
 
-          <Footer />
+          <Footer locations={shuffledLocations} />
 
           {/* Scroll Progress and Back to Top */}
           <ScrollProgress />

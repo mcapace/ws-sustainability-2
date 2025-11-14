@@ -97,7 +97,7 @@ export function Footer({ locations }: FooterProps = {}) {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16 rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-2xl"
         >
-          <div className="flex flex-nowrap items-center justify-center gap-4 overflow-x-auto lg:justify-between lg:overflow-visible">
+          <div className="flex flex-nowrap items-center justify-center gap-3 overflow-x-auto lg:justify-between lg:overflow-visible">
             {(locations || []).map(location => (
               <motion.a
                 key={location.id}
@@ -105,15 +105,15 @@ export function Footer({ locations }: FooterProps = {}) {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -4 }}
-                className="relative flex h-8 w-24 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white/75 p-2 shadow-[0_25px_55px_-35px_rgba(15,27,23,0.85)] transition"
+                className="relative flex h-10 w-20 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white/75 p-1.5 shadow-[0_25px_55px_-35px_rgba(15,27,23,0.85)] transition"
               >
                 {location.logo && (
                   <Image
                     src={location.logo}
                     alt={`${location.name} logo`}
                     fill
-                    className="object-contain object-center"
-                    sizes="96px"
+                    className="object-contain object-center p-1"
+                    sizes="80px"
                     unoptimized={true}
                   />
                 )}
