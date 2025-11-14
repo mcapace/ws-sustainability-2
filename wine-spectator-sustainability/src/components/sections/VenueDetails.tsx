@@ -70,38 +70,38 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex w-full items-center justify-start gap-3">
-              {location.logo ? (
-                <div className="relative h-10 w-32">
-                  <Image
-                    src={location.logo}
-                    alt={`${location.name} logo`}
-                    fill
-                    className="object-contain"
-                    sizes="128px"
-                  />
+            {location.article && location.article.length > 0 && (
+              <div className="space-y-6">
+                {location.logo && (
+                  <div
+                    className={`relative ${
+                      ['willakenzie', 'san-simeon', 'lallier', 'gloria-ferrer'].includes(location.id)
+                        ? 'h-16 w-64'
+                        : 'h-12 w-48'
+                    }`}
+                  >
+                    <Image
+                      src={location.logo}
+                      alt={`${location.name} logo`}
+                      fill
+                      className="object-contain"
+                      sizes={['willakenzie', 'san-simeon', 'lallier', 'gloria-ferrer'].includes(location.id) ? '256px' : '192px'}
+                      unoptimized={true}
+                    />
+                  </div>
+                )}
+                <div className="space-y-4">
+                  {location.article.map((paragraph, idx) => (
+                    <p key={idx} className="text-base leading-relaxed text-[#365A47]">
+                      {paragraph}
+                    </p>
+                  ))}
                 </div>
-              ) : (
-                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
-                  {location.shortName}
-                </span>
-              )}
-            </div>
-            <h3 className="text-balance font-serif text-4xl text-[#1F4D3B]">{location.name}</h3>
-            {location.tagline && (
-              <p className="text-sm uppercase tracking-[0.2em] text-[#6E8A7E]">
-                {location.tagline}
-              </p>
-            )}
-            <p className="text-lg leading-relaxed text-[#365A47]">
-              {location.cardIntro}
-            </p>
-            {location.signature && (
-              <p className="text-base italic text-[#6F8277]">{location.signature}</p>
+              </div>
             )}
 
             {location.features && location.features.length > 0 && (
-              <div className="rounded-3xl border border-[#E4E8E0] bg-white/85 p-6 backdrop-blur-xl shadow-[0_24px_70px_-40px_rgba(31,77,59,0.35)]">
+              <div className="mt-8 rounded-3xl border border-[#E4E8E0] bg-white/85 p-6 backdrop-blur-xl shadow-[0_24px_70px_-40px_rgba(31,77,59,0.35)]">
                 <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2F6B4C]">
                   Highlights
                 </h4>
@@ -113,15 +113,6 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
                     </li>
                   ))}
                 </ul>
-              </div>
-            )}
-            {location.article && location.article.length > 0 && (
-              <div className="space-y-4">
-                {location.article.map((paragraph, idx) => (
-                  <p key={idx} className="text-base leading-relaxed text-[#365A47]">
-                    {paragraph}
-                  </p>
-                ))}
               </div>
             )}
 
