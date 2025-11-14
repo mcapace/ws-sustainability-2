@@ -165,7 +165,7 @@ export function HeroSection() {
           </div>
           <div>
             <dt className="text-xs uppercase tracking-[0.3em] text-white/50">Regions</dt>
-            <dd className="mt-2 text-3xl font-semibold text-white">3</dd>
+            <dd className="mt-2 text-3xl font-semibold text-white">4</dd>
             <p className="text-sm text-white/60">California, Oregon, Tuscany &amp; Champagne.</p>
           </div>
         </motion.dl>

@@ -15,7 +15,6 @@ const PRODUCERS = [
 ];
 
 const PRIMARY_LINKS = [
-  { label: 'Impact', href: '#impact' },
   { label: 'Wineries', href: '#producers' },
 ];
 
