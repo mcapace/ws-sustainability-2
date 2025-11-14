@@ -132,23 +132,10 @@ export function HeroSection() {
               Meet the producers
             </a>
           </MagneticHover>
-          <MagneticHover>
-            <a
-              href="#impact"
-              className="rounded-full border border-white/60 px-8 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:bg-white/15"
-              onClick={() =>
-                trackInteraction('hero_cta_click', {
-                  target: 'impact',
-                })
-              }
-            >
-              Explore impact metrics
-            </a>
-          </MagneticHover>
         </motion.div>
 
         <motion.dl
-          className="mt-14 grid w-full max-w-4xl grid-cols-2 gap-6 text-left text-white/80 sm:grid-cols-3"
+          className="mt-14 grid w-full max-w-4xl grid-cols-2 gap-6 text-left text-white/80"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.45 }}
