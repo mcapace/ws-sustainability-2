@@ -146,11 +146,6 @@ export function HeroSection() {
             <p className="text-sm text-white/60">Regenerative leaders curated by Wine Spectator.</p>
           </div>
           <div>
-            <dt className="text-xs uppercase tracking-[0.3em] text-white/50">Pillars</dt>
-            <dd className="mt-2 text-3xl font-semibold text-white">12</dd>
-            <p className="text-sm text-white/60">From blue-carbon projects to circular packaging.</p>
-          </div>
-          <div>
             <dt className="text-xs uppercase tracking-[0.3em] text-white/50">Regions</dt>
             <dd className="mt-2 text-3xl font-semibold text-white">4</dd>
             <p className="text-sm text-white/60">California, Oregon, Tuscany &amp; Champagne.</p>
