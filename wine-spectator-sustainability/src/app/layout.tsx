@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: 'Wine Spectator Sustainability',
     title: 'Wine Spectator Sustainability | Stewardship in Every Pour',
     description:
-      'Discover regenerative, coastal, and community-driven pillars behind Wine Spectator's sustainability cohort.',
+      'Discover regenerative, coastal, and community-driven pillars behind Wine Spectator\'s sustainability cohort.',
     images: [
       {
         url: '/images/hero/sustainability-collection-hero.jpeg',
