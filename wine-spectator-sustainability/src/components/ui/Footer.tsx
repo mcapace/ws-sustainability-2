@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import type { VenueLocation } from '@/data/venues';
 
 const PRODUCERS = [
   { name: 'Firetree Vineyards', region: 'Napa, California', anchor: '#firetree' },
@@ -12,16 +13,11 @@ const PRODUCERS = [
   { name: 'WillaKenzie Estate', region: 'Yamhill, Oregon', anchor: '#willakenzie' },
 ];
 
-const PRODUCER_LOGOS = [
-  { src: '/images/logos/firetree.png', alt: 'Firetree Vineyards logo' },
-  { src: '/images/logos/gloria-ferrer.png', alt: 'Gloria Ferrer logo' },
-  { src: '/images/logos/lallier.png', alt: 'Lallier Champagne logo' },
-  { src: '/images/logos/piccini.png', alt: 'Piccini 1882 logo' },
-  { src: '/images/logos/san-simeon.png', alt: 'San Simeon Wines logo' },
-  { src: '/images/logos/willakenzie.png', alt: 'WillaKenzie Estate logo' },
-];
+interface FooterProps {
+  locations?: VenueLocation[];
+}
 
-export function Footer() {
+export function Footer({ locations }: FooterProps = {}) {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#0f1b17] text-white" id="footer">
       <div className="absolute inset-0 -z-10">
@@ -102,14 +98,26 @@ export function Footer() {
           className="mt-16 rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-2xl"
         >
           <div className="flex flex-nowrap items-center justify-center gap-4 overflow-x-auto lg:justify-between lg:overflow-visible">
-            {PRODUCER_LOGOS.map(logo => (
-              <motion.div
-                key={logo.src}
+            {(locations || []).map(location => (
+              <motion.a
+                key={location.id}
+                href={location.website}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -4 }}
-                className="relative flex h-16 w-40 flex-shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white/75 p-3 shadow-[0_25px_55px_-35px_rgba(15,27,23,0.85)] transition"
+                className="relative flex h-8 w-24 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white/75 p-2 shadow-[0_25px_55px_-35px_rgba(15,27,23,0.85)] transition"
               >
-                <Image src={logo.src} alt={logo.alt} fill className="object-contain" sizes="160px" />
-              </motion.div>
+                {location.logo && (
+                  <Image
+                    src={location.logo}
+                    alt={`${location.name} logo`}
+                    fill
+                    className="object-contain object-center"
+                    sizes="96px"
+                    unoptimized={true}
+                  />
+                )}
+              </motion.a>
             ))}
           </div>
         </motion.div>
