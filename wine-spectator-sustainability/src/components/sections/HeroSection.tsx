@@ -137,7 +137,7 @@ export function HeroSection() {
         </motion.div>
 
         <motion.dl
-          className="mt-14 grid w-full max-w-4xl grid-cols-2 gap-6 text-left text-white/80"
+          className="mt-14 grid w-full max-w-4xl grid-cols-2 gap-6 text-center text-white/80 mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.45 }}
