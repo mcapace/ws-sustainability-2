@@ -20,7 +20,7 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
 
   const galleryImages =
     location.images?.gallery && location.images.gallery.length > 0
-      ? location.images.gallery
+      ? [location.images.hero, ...location.images.gallery]
       : [location.images.hero];
   const currentImage = galleryImages[activeGalleryIndex] ?? location.images.hero;
 
