@@ -149,12 +149,14 @@ export default function Home() {
         <div className="min-h-screen bg-transparent">
           <SkipToMainContent />
 
-          {/* Top ad - fixed above navigation, always visible and centered */}
-          <div className="fixed top-0 left-0 right-0 z-[70] bg-transparent">
-            <GamAd slotId="div-gpt-ad-top" variant="top" />
+          {/* Top ad - fixed above navigation, always visible, full-width band */}
+          <div className="fixed top-0 left-0 right-0 z-[70] bg-[#F6F2E8] shadow-[0_2px_12px_rgba(15,27,23,0.15)] border-b border-[#E4E8E0]">
+            <div className="mx-auto flex w-full max-w-6xl items-center justify-center py-1.5 md:py-2">
+              <GamAd slotId="div-gpt-ad-top" variant="top" />
+            </div>
           </div>
-          {/* Spacer to offset the fixed top ad height (matches creative size per breakpoint) */}
-          <div className="h-[50px] md:h-[90px]" />
+          {/* Spacer to offset the fixed top ad height (matches creative size + padding) */}
+          <div className="h-[54px] md:h-[98px]" />
 
           <Navigation />
 
