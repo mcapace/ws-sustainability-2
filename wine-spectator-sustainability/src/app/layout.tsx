@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   creator: 'Wine Spectator',
   publisher: 'Wine Spectator',
   icons: {
-    icon: '/Sustainability/Logos/WS%20Favicon.jpg',
-    shortcut: '/Sustainability/Logos/WS%20Favicon.jpg',
-    apple: '/Sustainability/Logos/WS%20Favicon.jpg',
+    icon: '/Sustainability/Logos/Wine%20Spectator%20Favicon.png',
+    shortcut: '/Sustainability/Logos/Wine%20Spectator%20Favicon.png',
+    apple: '/Sustainability/Logos/Wine%20Spectator%20Favicon.png',
   },
   robots: {
     index: true,
