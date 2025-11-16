@@ -105,19 +105,32 @@ export default function RootLayout({
             __html: `
               window.googletag = window.googletag || { cmd: [] };
               googletag.cmd.push(function () {
-                // Top leaderboard (desktop/tablet 728x90, mobile 300x50)
+                // Size mappings
+                var lbMapping = googletag.sizeMapping()
+                  .addSize([1024, 0], [[728, 90]])      // desktop
+                  .addSize([768, 0],  [[728, 90]])      // tablet
+                  .addSize([0, 0],    [[300, 50]])      // mobile
+                  .build();
+                var mrecMapping = googletag.sizeMapping()
+                  .addSize([0, 0], [[300, 250]])        // all breakpoints
+                  .build();
+
+                // Top leaderboard (728x90 on md+, 300x50 on mobile)
                 googletag
                   .defineSlot('/4054/WS_Sustainability_2025', [[728, 90], [300, 50]], 'div-gpt-ad-top')
+                  .defineSizeMapping(lbMapping)
                   .addService(googletag.pubads());
 
-                // Mid-page rectangle (all: 300x250)
+                // Mid-page rectangle (300x250 only)
                 googletag
                   .defineSlot('/4054/WS_Sustainability_2025', [[300, 250]], 'div-gpt-ad-mid')
+                  .defineSizeMapping(mrecMapping)
                   .addService(googletag.pubads());
 
-                // Bottom leaderboard (desktop/tablet 728x90, mobile 300x50)
+                // Bottom leaderboard (728x90 on md+, 300x50 on mobile)
                 googletag
                   .defineSlot('/4054/WS_Sustainability_2025', [[728, 90], [300, 50]], 'div-gpt-ad-bottom')
+                  .defineSizeMapping(lbMapping)
                   .addService(googletag.pubads());
 
                 googletag.pubads().enableSingleRequest();
