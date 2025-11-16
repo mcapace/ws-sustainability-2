@@ -19,6 +19,7 @@ import { useInteractionAnalytics } from '@/components/providers/AnalyticsProvide
 import { venueData } from '@/data/venues';
 import { shuffleArray } from '@/lib/shuffle';
 import { AdSlot } from '@/components/ads/AdSlot';
+import { GamAd } from '@/components/ads/GamAd';
 
 // Register GSAP ScrollTrigger
 if (typeof window !== 'undefined') {
@@ -151,11 +152,7 @@ export default function Home() {
 
           {/* Top ad - above navigation, sticky and centered */}
           <div className="sticky top-0 z-50 w-full bg-transparent">
-            <div className="mx-auto flex w-full max-w-6xl items-center justify-center py-2">
-              <div id="div-gpt-ad-top" style={{ minWidth: 300, minHeight: 50 }}>
-                <script dangerouslySetInnerHTML={{ __html: `window.googletag=window.googletag||{cmd:[]};googletag.cmd.push(function(){googletag.display('div-gpt-ad-top');});` }} />
-              </div>
-            </div>
+            <GamAd slotId="div-gpt-ad-top" variant="top" className="py-2" />
           </div>
 
           <Navigation />
@@ -170,22 +167,14 @@ export default function Home() {
             </VenueErrorBoundary>
 
             {/* Mid-page 300x250 - centered */}
-            <div className="mt-16 mb-16 flex justify-center">
-              <div id="div-gpt-ad-mid" style={{ minWidth: 300, minHeight: 250 }}>
-                <script dangerouslySetInnerHTML={{ __html: `window.googletag=window.googletag||{cmd:[]};googletag.cmd.push(function(){googletag.display('div-gpt-ad-mid');});` }} />
-              </div>
-            </div>
+            <GamAd slotId="div-gpt-ad-mid" variant="mid" className="mt-16 mb-16" />
 
             <ErrorBoundary>
               <VenueDetails locations={shuffledLocations} />
             </ErrorBoundary>
 
             {/* Bottom ad - centered */}
-            <div className="mt-16 mb-24 flex justify-center">
-              <div id="div-gpt-ad-bottom" style={{ minWidth: 300, minHeight: 50 }}>
-                <script dangerouslySetInnerHTML={{ __html: `window.googletag=window.googletag||{cmd:[]};googletag.cmd.push(function(){googletag.display('div-gpt-ad-bottom');});` }} />
-              </div>
-            </div>
+            <GamAd slotId="div-gpt-ad-bottom" variant="bottom" className="mt-16 mb-24" />
           </main>
 
           <Footer locations={shuffledLocations} />
