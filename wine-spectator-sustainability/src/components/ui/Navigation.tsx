@@ -41,7 +41,7 @@ export function Navigation() {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 z-50 w-full transition-colors duration-300 ${desktopNavBackground}`}
+        className={`fixed top-[50px] md:top-[90px] z-50 w-full transition-colors duration-300 ${desktopNavBackground}`}
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
