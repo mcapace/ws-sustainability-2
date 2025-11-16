@@ -98,6 +98,11 @@ export default function RootLayout({
         <OrganizationStructuredData />
         <BreadcrumbStructuredData />
 
+        {/* Explicit favicon links for broad browser support */}
+        <link rel="icon" href="/Sustainability/Logos/Wine%20Spectator%20Favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/Sustainability/Logos/Wine%20Spectator%20Favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/Sustainability/Logos/Wine%20Spectator%20Favicon.png" />
+
         {/* Google Publisher Tag header script */}
         <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossOrigin="anonymous"></script>
         <script
