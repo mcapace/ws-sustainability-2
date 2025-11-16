@@ -150,10 +150,12 @@ export default function Home() {
         <div className="min-h-screen bg-transparent">
           <SkipToMainContent />
 
-          {/* Top ad - above navigation, sticky and centered */}
-          <div className="sticky top-0 z-50 w-full bg-transparent">
-            <GamAd slotId="div-gpt-ad-top" variant="top" className="py-2" />
+          {/* Top ad - fixed above navigation, always visible and centered */}
+          <div className="fixed top-0 left-0 right-0 z-[70] bg-transparent">
+            <GamAd slotId="div-gpt-ad-top" variant="top" />
           </div>
+          {/* Spacer to offset the fixed top ad height (matches creative size per breakpoint) */}
+          <div className="h-[50px] md:h-[90px]" />
 
           <Navigation />
 
