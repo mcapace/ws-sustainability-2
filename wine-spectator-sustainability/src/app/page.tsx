@@ -148,15 +148,17 @@ export default function Home() {
       <ErrorBoundary>
         <div className="min-h-screen bg-transparent">
           <SkipToMainContent />
+
+          {/* Top ad - above navigation, sticky and centered */}
+          <div className="sticky top-0 z-50 w-full bg-transparent">
+            <div className="mx-auto flex w-full max-w-6xl items-center justify-center py-2">
+              <div id="div-gpt-ad-top" style={{ minWidth: 300, minHeight: 50 }}>
+                <script dangerouslySetInnerHTML={{ __html: `window.googletag=window.googletag||{cmd:[]};googletag.cmd.push(function(){googletag.display('div-gpt-ad-top');});` }} />
+              </div>
+            </div>
+          </div>
+
           <Navigation />
-          <AdSlot
-            slotId="gam-leaderboard-top"
-            label="Top Leaderboard"
-            desktop={[728, 90]}
-            tablet={[728, 90]}
-            mobile={[300, 50]}
-            className="mt-6"
-          />
 
           <main id="main-content">
             <ErrorBoundary>
@@ -167,28 +169,23 @@ export default function Home() {
               <VenueShowcase locations={shuffledLocations} />
             </VenueErrorBoundary>
 
-            <AdSlot
-              slotId="gam-mid-rectangle"
-              label="Mid-Page Rectangle"
-              desktop={[300, 600]}
-              tablet={[300, 250]}
-              mobile={[300, 250]}
-              className="mt-16"
-            />
+            {/* Mid-page 300x250 - centered */}
+            <div className="mt-16 mb-16 flex justify-center">
+              <div id="div-gpt-ad-mid" style={{ minWidth: 300, minHeight: 250 }}>
+                <script dangerouslySetInnerHTML={{ __html: `window.googletag=window.googletag||{cmd:[]};googletag.cmd.push(function(){googletag.display('div-gpt-ad-mid');});` }} />
+              </div>
+            </div>
 
             <ErrorBoundary>
               <VenueDetails locations={shuffledLocations} />
             </ErrorBoundary>
 
-            <AdSlot
-              slotId="gam-bottom-banner"
-              label="Bottom Banner"
-              desktop={[728, 90]}
-              tablet={[468, 60]}
-              mobile={[300, 50]}
-              className="mt-16"
-            />
-
+            {/* Bottom ad - centered */}
+            <div className="mt-16 mb-24 flex justify-center">
+              <div id="div-gpt-ad-bottom" style={{ minWidth: 300, minHeight: 50 }}>
+                <script dangerouslySetInnerHTML={{ __html: `window.googletag=window.googletag||{cmd:[]};googletag.cmd.push(function(){googletag.display('div-gpt-ad-bottom');});` }} />
+              </div>
+            </div>
           </main>
 
           <Footer locations={shuffledLocations} />

@@ -97,6 +97,35 @@ export default function RootLayout({
         />
         <OrganizationStructuredData />
         <BreadcrumbStructuredData />
+
+        {/* Google Publisher Tag header script */}
+        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossOrigin="anonymous"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.googletag = window.googletag || { cmd: [] };
+              googletag.cmd.push(function () {
+                // Top leaderboard (desktop/tablet 728x90, mobile 300x50)
+                googletag
+                  .defineSlot('/4054/WS_Sustainability_2025', [[728, 90], [300, 50]], 'div-gpt-ad-top')
+                  .addService(googletag.pubads());
+
+                // Mid-page rectangle (all: 300x250)
+                googletag
+                  .defineSlot('/4054/WS_Sustainability_2025', [[300, 250]], 'div-gpt-ad-mid')
+                  .addService(googletag.pubads());
+
+                // Bottom leaderboard (desktop/tablet 728x90, mobile 300x50)
+                googletag
+                  .defineSlot('/4054/WS_Sustainability_2025', [[728, 90], [300, 50]], 'div-gpt-ad-bottom')
+                  .addService(googletag.pubads());
+
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+              });
+            `,
+          }}
+        />
       </head>
       <body
         className={`${campaignDisplay.variable} ${campaignBody.variable} ${campaignAccent.variable} antialiased bg-[#EEF3EA] text-[#143024]`}
