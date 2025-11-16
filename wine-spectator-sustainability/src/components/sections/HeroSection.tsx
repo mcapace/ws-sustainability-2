@@ -71,6 +71,8 @@ export function HeroSection() {
           alt="Sunlit vineyard terraces with sustainable farming"
           fill
           priority
+          fetchPriority="high"
+          decoding="async"
           className="object-cover object-[center_top]"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#0e221a]/80 via-[#143024]/70 to-[#0b1a14]/85" />

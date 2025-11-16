@@ -178,7 +178,7 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
                     }`}
                     aria-label={`View ${location.name} gallery image ${imgIndex + 1}`}
                   >
-                    <Image src={img} alt="" fill className="object-cover" sizes="80px" unoptimized={true} />
+                    <Image src={img} alt="" fill className="object-cover" sizes="80px" unoptimized={true} loading="lazy" decoding="async" />
                   </button>
                 ))}
               </div>

@@ -104,6 +104,11 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/Sustainability/Logos/Wine%20Spectator%20Favicon.ico?v=3" />
         <meta name="theme-color" content="#0f1b17" />
 
+        {/* Performance: preconnect to ad domain and preload hero image */}
+        <link rel="preconnect" href="https://securepubads.g.doubleclick.net" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagservices.com" crossOrigin="anonymous" />
+        <link rel="preload" as="image" href="/images/hero/sustainability-collection-hero.jpeg" imagesrcset="/images/hero/sustainability-collection-hero.jpeg" fetchpriority="high" />
+
         {/* Google Publisher Tag header script */}
         <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossOrigin="anonymous"></script>
         <script
