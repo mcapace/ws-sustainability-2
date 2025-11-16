@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   creator: 'Wine Spectator',
   publisher: 'Wine Spectator',
   icons: {
-    icon: '/Sustainability/Logos/Wine%20Spectator%20Favicon.png',
-    shortcut: '/Sustainability/Logos/Wine%20Spectator%20Favicon.png',
-    apple: '/Sustainability/Logos/Wine%20Spectator%20Favicon.png',
+    icon: '/Sustainability/Logos/Wine%20Spectator%20Favicon.png?v=2',
+    shortcut: '/Sustainability/Logos/Wine%20Spectator%20Favicon.png?v=2',
+    apple: '/Sustainability/Logos/Wine%20Spectator%20Favicon.png?v=2',
   },
   robots: {
     index: true,
@@ -99,9 +99,10 @@ export default function RootLayout({
         <BreadcrumbStructuredData />
 
         {/* Explicit favicon links for broad browser support */}
-        <link rel="icon" href="/Sustainability/Logos/Wine%20Spectator%20Favicon.png" type="image/png" />
-        <link rel="shortcut icon" href="/Sustainability/Logos/Wine%20Spectator%20Favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/Sustainability/Logos/Wine%20Spectator%20Favicon.png" />
+        <link rel="icon" href="/Sustainability/Logos/Wine%20Spectator%20Favicon.png?v=2" type="image/png" />
+        <link rel="shortcut icon" href="/Sustainability/Logos/Wine%20Spectator%20Favicon.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/Sustainability/Logos/Wine%20Spectator%20Favicon.png?v=2" />
+        <meta name="theme-color" content="#0f1b17" />
 
         {/* Google Publisher Tag header script */}
         <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossOrigin="anonymous"></script>
