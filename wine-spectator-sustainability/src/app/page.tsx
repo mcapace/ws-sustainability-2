@@ -13,7 +13,6 @@ import { SkipToMainContent } from '@/components/ui/AccessibilityFeatures';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MobileProvider } from '@/components/providers/MobileProvider';
-import { MobileNavigation } from '@/components/mobile/MobileNavigation';
 import type { MobileNavigationItem, QuickAction } from '@/types/mobile';
 import { useInteractionAnalytics } from '@/components/providers/AnalyticsProvider';
 import { venueData } from '@/data/venues';
@@ -184,7 +183,8 @@ export default function Home() {
           {/* Scroll Progress and Back to Top */}
           <ScrollProgress />
 
-          <MobileNavigation items={mobileNavigationItems} quickActions={mobileQuickActions} />
+          {/* Removed bottom MobileNavigation per request */}
+          {/* <MobileNavigation items={mobileNavigationItems} quickActions={mobileQuickActions} /> */}
 
           {/* Development tools */}
           {ENABLE_TOOLING && (
