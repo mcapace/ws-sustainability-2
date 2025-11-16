@@ -155,6 +155,7 @@ export function WineryDetail({ location, index }: { location: VenueLocation; ind
                   className="object-cover"
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   priority={index === 0}
+                  style={{ objectPosition: location.id === 'lallier' ? '50% 20%' : 'center' }}
                 />
               </div>
             </div>
