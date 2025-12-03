@@ -37,7 +37,7 @@
     "preview": "npm run build && npm run start"
   },
   "dependencies": {
-    "next": "15.5.3",
+    "next": "15.5.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.3.3",
@@ -73,7 +73,7 @@
     "@types/lodash.throttle": "^4.1.9",
     "@types/canvas-confetti": "^1.6.4",
     "eslint": "^8.56.0",
-    "eslint-config-next": "15.5.3",
+    "eslint-config-next": "15.5.7",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "eslint-plugin-react": "^7.33.2",

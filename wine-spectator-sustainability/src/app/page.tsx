@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useEffect } from 'react';
 import { Navigation } from '@/components/ui/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { VenueShowcase } from '@/components/sections/VenueShowcase';
@@ -63,6 +63,89 @@ export default function Home() {
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }, []);
+
+  // Handle hash navigation on page load and hash changes
+  useEffect(() => {
+    const scrollToHashElement = (elementId: string) => {
+      // Wait for the page to be ready and elements to be rendered
+      let retryCount = 0;
+      const maxRetries = 20; // Maximum 2 seconds of retries (20 * 100ms)
+      
+      const scrollToElement = () => {
+        const element = document.getElementById(elementId);
+        if (element) {
+          // Account for fixed header/navigation (approximately 100px)
+          const headerOffset = 100;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        } else if (retryCount < maxRetries) {
+          // If element not found yet, try again after a short delay
+          retryCount++;
+          setTimeout(scrollToElement, 100);
+        }
+      };
+
+      // Use requestAnimationFrame to ensure DOM is ready
+      requestAnimationFrame(() => {
+        // Add a small delay to ensure all components are rendered
+        setTimeout(scrollToElement, 100);
+      });
+    };
+
+    const handleHashNavigation = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+
+      // Remove the # from the hash
+      const elementId = hash.slice(1);
+      scrollToHashElement(elementId);
+    };
+
+    // Handle clicks on hash links to ensure smooth scrolling
+    const handleHashLinkClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a[href^="#"]') as HTMLAnchorElement;
+      
+      if (link && link.hash) {
+        const elementId = link.hash.slice(1);
+        // Only prevent default if it's a hash link (not just #)
+        if (elementId) {
+          e.preventDefault();
+          // Update the URL without triggering a page reload
+          window.history.pushState(null, '', link.hash);
+          scrollToHashElement(elementId);
+        }
+      }
+    };
+
+    // Handle initial hash on page load
+    // Wait a bit longer on initial load to ensure all components are mounted
+    const initialTimeout = setTimeout(() => {
+      handleHashNavigation();
+    }, 300);
+
+    // Handle hash changes (when clicking links while on the page)
+    const handleHashChange = () => {
+      handleHashNavigation();
+    };
+
+    // Listen for clicks on hash links
+    document.addEventListener('click', handleHashLinkClick, true);
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      clearTimeout(initialTimeout);
+      document.removeEventListener('click', handleHashLinkClick, true);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   const mobileNavigationItems: MobileNavigationItem[] = [
