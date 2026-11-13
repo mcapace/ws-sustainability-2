@@ -9,27 +9,43 @@ declare global {
 
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 
-// Initialize Google Analytics
+// Initialize Google Analytics, only after Cookiebot statistics consent.
+// GA's opt-out flag stays on until then and comes back on if consent is withdrawn.
 export const initGA = () => {
   if (typeof window === 'undefined' || !GA_TRACKING_ID) return;
 
-  // Load Google Analytics script
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
-  document.head.appendChild(script);
+  const flags = window as unknown as Record<string, unknown>;
+  let loaded = false;
 
-  // Initialize gtag
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function() {
-    window.dataLayer.push(arguments);
+  const sync = () => {
+    const allowed = window.Cookiebot?.consent?.statistics === true;
+    flags[`ga-disable-${GA_TRACKING_ID}`] = !allowed;
+    if (!allowed || loaded) return;
+    loaded = true;
+
+    // Load Google Analytics script
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`; // consent-kit-allow: runs only after consent
+    document.head.appendChild(script);
+
+    // Initialize gtag
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function() {
+      window.dataLayer.push(arguments);
+    };
+
+    window.gtag('js', new Date());
+    window.gtag('config', GA_TRACKING_ID, {
+      page_title: document.title,
+      page_location: window.location.href,
+    });
   };
 
-  window.gtag('js', new Date());
-  window.gtag('config', GA_TRACKING_ID, {
-    page_title: document.title,
-    page_location: window.location.href,
-  });
+  sync();
+  ['CookiebotOnConsentReady', 'CookiebotOnAccept', 'CookiebotOnDecline'].forEach(name =>
+    window.addEventListener(name, sync)
+  );
 };
 
 // Track page views
