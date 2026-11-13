@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { campaignDisplay, campaignBody, campaignAccent } from './fonts';
 import { OrganizationStructuredData, BreadcrumbStructuredData } from '@/components/seo/StructuredData';
 import { AnalyticsProviderWrapper } from '@/components/providers/AnalyticsProviderWrapper';
+import { AD_CONSENT_GATE_SRC, COOKIEBOT_CBID, COOKIEBOT_GEOREGIONS } from '@/components/consent/cookiebot';
 
 export const metadata: Metadata = {
   title: {
@@ -104,13 +105,22 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/Sustainability/Logos/Wine%20Spectator%20Favicon.ico?v=3" />
         <meta name="theme-color" content="#0f1b17" />
 
-        {/* Performance: preconnect to ad domain and preload hero image */}
-        <link rel="preconnect" href="https://securepubads.g.doubleclick.net" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.googletagservices.com" crossOrigin="anonymous" />
+        {/* Performance: preload hero image. No preconnect to Google ad domains:
+            nothing may contact them before the visitor's consent choice is known. */}
         <link rel="preload" as="image" href="/images/hero/sustainability-collection-hero.jpeg" imagesrcset="/images/hero/sustainability-collection-hero.jpeg" fetchpriority="high" />
 
-        {/* Google Publisher Tag header script */}
-        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossOrigin="anonymous"></script>
+        {/* Google ads: gpt.js is never loaded directly. Wine Spectator's ad consent
+            gate loads it once the Cookiebot choice is known (normal ads after Accept
+            with no GPC, limited ads otherwise). The gate must load before Cookiebot. */}
+        <script src={AD_CONSENT_GATE_SRC}></script>
+        <script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid={COOKIEBOT_CBID}
+          data-blockingmode="manual"
+          data-georegions={COOKIEBOT_GEOREGIONS}
+          async
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
