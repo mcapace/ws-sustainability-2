@@ -3,6 +3,9 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import type { VenueLocation } from '@/data/venues';
+import PrivacyChoicesLink from '@/components/consent/PrivacyChoicesLink';
+
+const PRIVACY_POLICY_URL = 'https://www.winespectator.com/pages/privacy-policy';
 
 const PRODUCERS = [
   { name: 'Firetree Vineyards', region: 'Napa, California', anchor: '#firetree' },
@@ -124,6 +127,17 @@ export function Footer({ locations }: FooterProps = {}) {
 
         <div className="mt-20 border-t border-white/10 pt-8 text-center text-xs uppercase tracking-[0.3em] text-white/40">
           © {new Date().getFullYear()} Wine Spectator · Sustainability Collection 2025
+          <div className="mt-4 flex justify-center gap-6 normal-case tracking-normal">
+            <a
+              href={PRIVACY_POLICY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              Privacy Policy
+            </a>
+            <PrivacyChoicesLink fallbackHref={PRIVACY_POLICY_URL} className="hover:text-white" />
+          </div>
         </div>
       </div>
     </footer>
